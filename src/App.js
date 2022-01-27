@@ -3,12 +3,13 @@
 // import Product from './containers/Product'
 import Register from './containers/Register'
 import Login from './containers/Login'
+import Cart from './containers/Cart'
 
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Cart />
     </div>
   );
 }
