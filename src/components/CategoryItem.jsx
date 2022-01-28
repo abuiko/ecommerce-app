@@ -1,16 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import { device } from '../responsive'
 
 const Container = styled.div`
     flex: 1;
     margin: 3px;
     height: 70vh; 
-    position: relative;   
+    position: relative;  
+
+    @media screen and ${device.tablet} {
+        margin: 0px;
+    }
+    
 `
 const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    @media screen and ${device.tablet} {
+        height: 30vh;
+    }
 `
 const Info = styled.div`
     position: absolute;

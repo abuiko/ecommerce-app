@@ -1,6 +1,7 @@
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { device } from '../responsive'
 
 const Info = styled.div`
     opacity: 0;
@@ -16,6 +17,15 @@ const Info = styled.div`
     justify-content: center;
     transition: all 0.5s ease;
     cursor: pointer;
+
+    @media screen and ${device.mobile} {
+        
+        opacity: 1;
+        background-color: transparent;
+        align-items: end;
+        justify-content: space-around;
+        
+    }
 `
 
 const Container = styled.div`
@@ -32,6 +42,11 @@ const Container = styled.div`
     &:hover ${Info} {
         opacity: 1;
     }
+
+    @media screen and ${device.tablet} {
+        height: 250px;
+    }
+
 `
 const Circle = styled.div`
     width: 200px;
@@ -65,6 +80,10 @@ const Icon = styled.div`
         transform: scale(1.1)
     }
 
+    @media screen and ${device.mobile} {
+        display: ${props => props.type === "search" && "none"}
+    }
+
 `
 
 
@@ -77,7 +96,7 @@ const Product = ({ item }) => {
                 <Icon>
                     <ShoppingCartOutlined />
                 </Icon>
-                <Icon>
+                <Icon type="search">
                     <SearchOutlined />
                 </Icon>
                 <Icon>
