@@ -28,6 +28,7 @@ const MobileContainer = styled.div`
         height: 30vh;
         display: flex;
         position: relative;
+        overflow: hidden;
     }
 `
 

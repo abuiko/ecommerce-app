@@ -1,11 +1,18 @@
 import { Facebook, Instagram, MailOutline, Phone, Room, Twitter } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { device } from '../responsive'
 
 const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and ${device.tablet} {
+        flex-direction: column;
+        align-items: start;
+        padding: 20px 0px;
+    }
 `
 const Left = styled.div`
     flex: 1;
