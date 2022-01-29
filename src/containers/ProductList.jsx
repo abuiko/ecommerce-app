@@ -1,11 +1,13 @@
 import React from 'react'
 import Announcement from '../components/Announcement'
 import Navbar from '../components/Navbar'
-import Products from '../components/Products'
+import Product from '../components/Product'
 import NewsLetter from '../components/NewsLetter'
 import Footer from '../components/Footer'
 
 import styled from 'styled-components'
+import { popularProducts } from '../data'
+import { device } from '../responsive'
 
 const Container = styled.div``
 const Title = styled.h1`
@@ -31,7 +33,19 @@ const Select = styled.select`
 `
 
 const Option = styled.option`
+`
 
+const Wrapper = styled.div`  
+`
+const ProductContainer = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and ${device.mobile} {
+        display: none;
+    }
 `
 
 const ProductList = () => {
@@ -70,7 +84,15 @@ const ProductList = () => {
                     </Select>
                 </Filter>
             </FilterContainer>
-            <Products />
+            <Wrapper>
+                <ProductContainer>
+                    {popularProducts.map(item => (
+                        <Product item={item} key={item.id} />
+                    ))}
+                </ProductContainer>
+            </Wrapper>
+
+
             <NewsLetter />
             <Footer />
         </Container>

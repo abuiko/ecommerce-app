@@ -2,6 +2,7 @@ import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@m
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../responsive'
+import { Link } from 'react-router-dom'
 
 const Info = styled.div`
     opacity: 0;
@@ -60,8 +61,6 @@ const Image = styled.img`
     z-index: 2;
     
 `
-
-
 const Icon = styled.div`
     width: 40px;
     height: 40px;
@@ -85,8 +84,6 @@ const Icon = styled.div`
     }
 
 `
-
-
 const Product = ({ item }) => {
     return (
         <Container>
@@ -97,7 +94,7 @@ const Product = ({ item }) => {
                     <ShoppingCartOutlined />
                 </Icon>
                 <Icon type="search">
-                    <SearchOutlined />
+                    <Link to="/product_details"><SearchOutlined /></Link>
                 </Icon>
                 <Icon>
                     <FavoriteBorderOutlined />

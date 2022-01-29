@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { Badge } from '@material-ui/core';
 import { ShoppingCartOutlined, Menu } from '@material-ui/icons';
@@ -66,7 +67,7 @@ const Center = styled.div`
     text-align: center;
 `
 const Logo = styled.h1`
-    font-weight: bold;    
+    font-weight: bold;   
 `
 
 const Right = styled.div`
@@ -86,7 +87,7 @@ const Navbar = () => {
     return (
         <Container>
             <MobileWrapper>
-                <Logo>LOGO</Logo>
+                <Logo><Link to="/" style={{ textDecoration: 'none', color: "black" }}>LOGO</Link></Logo>
                 <MenuIcon>
                     <Menu />
                 </MenuIcon>
@@ -100,15 +101,18 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
                 <Center>
-                    <Logo>LOGO</Logo>
+                    <Logo><Link to="/" style={{ textDecoration: 'none', color: "black" }}>LOGO</Link></Logo>
                 </Center>
                 <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>SIGN IN</MenuItem>
+                    <MenuItem><Link to="/register" style={{ textDecoration: 'none', color: "black" }}>REGISTER</Link></MenuItem>
+                    <MenuItem><Link to="/register" style={{ textDecoration: 'none', color: "black" }}>SIGN IN</Link></MenuItem>
                     <MenuItem>
-                        <Badge badgeContent={4} color="primary">
-                            <ShoppingCartOutlined />
-                        </Badge>
+                        <Link to="/cart" style={{ color: "black" }}>
+                            <Badge badgeContent={4} color="primary">
+                                <ShoppingCartOutlined />
+                            </Badge>
+                        </Link>
+
                     </MenuItem>
                 </Right>
             </Wrapper>

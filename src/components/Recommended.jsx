@@ -6,8 +6,7 @@ import { device } from '../responsive'
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
 
 
-const Container = styled.div`
-    
+const Container = styled.div`  
 `
 const TabletContainer = styled.div`
     padding: 20px;
@@ -19,32 +18,27 @@ const TabletContainer = styled.div`
         display: none;
     }
 `
+const Title = styled.p`
+           
+        
+        text-align: center;
+        margin: 20px 0px;
+        font-size: 28px;
+        font-weight: 300;
+    
+`
 const MobileContainer = styled.div`
     display: none;
 
     @media screen and ${device.mobile} {
         
         width: 100%;
-        height: 30vh;
+        height: 300px;
         display: flex;
         position: relative;
         overflow: hidden;
     }
 `
-
-const MobileTitle = styled.p`
-    display: none;
-
-    @media screen and ${device.mobile} {
-        
-        display: block;
-        text-align: center;
-        margin: 20px 0px;
-        font-size: 24px;
-        font-weight: 500;
-    }
-`
-
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
@@ -92,14 +86,15 @@ const Products = () => {
 
     return (
         <Container>
+            <Title>Recommended Products</Title>
+
             <TabletContainer>
                 {popularProducts.map(item => (
                     <Product item={item} key={item.id} />
                 ))}
             </TabletContainer>
-            <MobileTitle>Recommended Products</MobileTitle>
-            <MobileContainer>
 
+            {/* <MobileContainer>
                 <Arrow direction="left" onClick={() => handleClick("left")}>
                     <ArrowLeftOutlined />
                 </Arrow>
@@ -114,7 +109,7 @@ const Products = () => {
                 <Arrow direction="right" onClick={() => handleClick("right")}>
                     <ArrowRightOutlined />
                 </Arrow>
-            </MobileContainer>
+            </MobileContainer> */}
 
         </Container>
     )

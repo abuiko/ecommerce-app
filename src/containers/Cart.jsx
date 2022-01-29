@@ -5,21 +5,35 @@ import Footer from '../components/Footer'
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
 
+import { device } from '../responsive'
+
 const Container = styled.div``
 
 const Wrapper = styled.div`
     padding: 20px;
     margin-top: 30px;
+
+    @media screen and ${device.tablet} {
+        padding: 0px;
+    }
 `
 const Title = styled.h1`
     font-weight: 300;
     text-align: center;
+
+    @media screen and ${device.mobile} {
+        font-size: 25px;
+    }
 `
 const Top = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+
+    @media screen and ${device.tablet} {
+        padding-bottom: 0px;
+    }
 `
 const TopButton = styled.button`
     padding: 10px;
@@ -29,7 +43,11 @@ const TopButton = styled.button`
     color: ${props => props.type === "filled" && "white"};
     border: ${props => props.type === "filled" && "none"};
 `
-const TopTexts = styled.div``
+const TopTexts = styled.div`
+    @media screen and ${device.tablet} {
+        display: none;
+    }
+`
 
 const TopText = styled.span`
     text-decoration: underline;
@@ -40,6 +58,10 @@ const TopText = styled.span`
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media screen and ${device.tablet} {
+        flex-direction: column;
+    }
 `
 
 const Info = styled.div`
@@ -49,6 +71,10 @@ const Info = styled.div`
 const Product = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media screen and ${device.tablet} {
+        padding: 20px 0px;
+    }
 `
 const ProductDetails = styled.div`
     flex: 2;
@@ -57,6 +83,11 @@ const ProductDetails = styled.div`
 const Image = styled.img`
     width: 150px;
     padding: 20px;
+
+    @media screen and ${device.tablet} {
+        width: 100px;
+        padding: 10px 20px;
+    }
     
 `
 const Details = styled.div`
@@ -70,7 +101,12 @@ const ProductColor = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: ${props => props.color}
+    background-color: ${props => props.color};
+
+    @media screen and ${device.tablet} {
+        width: 15px;
+        height: 15px;
+    }
 `
 const ProductSize = styled.span``
 
@@ -90,11 +126,19 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
     font-size: 24px;
     margin: 5px;
+
+    @media screen and ${device.tablet} {
+        font-size: 18px;
+    }
 `
 
 const ProductPrice = styled.span`
     font-size: 30px;
     font-weight: 200;
+
+    @media screen and ${device.tablet} {
+        font-size: 22px;
+    }
 `
 
 const Hr = styled.hr`
@@ -110,6 +154,11 @@ const Summary = styled.div`
     padding: 20px;
     height: 50vh;
 
+    @media screen and ${device.tablet} {
+        margin-top: 20px;
+      
+    }
+    
 `
 const SummaryTitle = styled.h2`
     font-weight: 200;
