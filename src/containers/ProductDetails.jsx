@@ -6,11 +6,16 @@ import Footer from '../components/Footer'
 
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
+import { device } from '../responsive'
 
 const Container = styled.div``
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
+
+    @media screen and ${device.mobile} {
+        flex-direction: column;
+    }
 `
 const ImgContainer = styled.div`
     flex: 1;
@@ -23,6 +28,10 @@ const Image = styled.img`
 const InfoContainer = styled.div`
     flex: 1;
     padding: 0px 50px;
+
+    @media screen and ${device.tablet} {
+        padding: 10px 10px;
+    }
 `
 const Title = styled.h1`
     font-weight: 200;
@@ -41,6 +50,10 @@ const FilterContainer = styled.div`
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;
+
+    @media screen and ${device.mobile} {
+        width: 100%;
+    }
 `
 
 const Filter = styled.div`
@@ -73,6 +86,10 @@ const AddContainer = styled.div`
     align-items: center;
     width: 50%;
     justify-content: space-between;
+
+    @media screen and ${device.mobile} {
+        width: 100%;
+    }
 `
 const AmountContainer = styled.div`
     display: flex;

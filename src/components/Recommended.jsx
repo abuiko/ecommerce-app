@@ -7,6 +7,8 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
 
 
 const Container = styled.div`  
+    
+   
 `
 const TabletContainer = styled.div`
     padding: 20px;
@@ -37,6 +39,9 @@ const MobileContainer = styled.div`
         display: flex;
         position: relative;
         overflow: hidden;
+        background-color: #f5fbfd;
+       
+        
     }
 `
 const Wrapper = styled.div`
@@ -49,8 +54,7 @@ const Wrapper = styled.div`
 const Slide = styled.div`
     width: 100vw;
     display: flex;
-    align-items: center;
-    background-color: #${props => props.bg}
+    align-items: center;   
 `
 
 const Arrow = styled.div`
@@ -94,14 +98,14 @@ const Products = () => {
                 ))}
             </TabletContainer>
 
-            {/* <MobileContainer>
+            <MobileContainer>
                 <Arrow direction="left" onClick={() => handleClick("left")}>
                     <ArrowLeftOutlined />
                 </Arrow>
                 <Wrapper slideIndex={slideIndex}>
                     {popularProducts.map(item => (
-                        <Slide key={item.id} bg={item.bg}>
-                            <Product item={item} key={item.id} />
+                        <Slide key={item.id}>
+                            <Product item={item} />
                         </Slide>
 
                     ))}
@@ -109,7 +113,7 @@ const Products = () => {
                 <Arrow direction="right" onClick={() => handleClick("right")}>
                     <ArrowRightOutlined />
                 </Arrow>
-            </MobileContainer> */}
+            </MobileContainer>
 
         </Container>
     )

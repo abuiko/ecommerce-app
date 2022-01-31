@@ -54,7 +54,7 @@ const CategoryItem = ({ item }) => {
             <Image src={item.img} />
             <Info>
                 <Title>{item.title}</Title>
-                <Button><Link to="/product_list">SHOP NOW</Link></Button>
+                <Button><Link to="/product_list" style={{ textDecoration: 'none', color: "black" }}>SHOP NOW</Link></Button>
             </Info>
         </Container>
     )

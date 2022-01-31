@@ -24,8 +24,7 @@ const Info = styled.div`
         opacity: 1;
         background-color: transparent;
         align-items: end;
-        justify-content: space-around;
-        
+        justify-content: center;     
     }
 `
 
@@ -79,9 +78,7 @@ const Icon = styled.div`
         transform: scale(1.1)
     }
 
-    @media screen and ${device.mobile} {
-        display: ${props => props.type === "search" && "none"}
-    }
+    
 
 `
 const Product = ({ item }) => {
@@ -94,7 +91,7 @@ const Product = ({ item }) => {
                     <ShoppingCartOutlined />
                 </Icon>
                 <Icon type="search">
-                    <Link to="/product_details"><SearchOutlined /></Link>
+                    <Link to="/product_details" style={{ color: "black" }}><SearchOutlined /></Link>
                 </Icon>
                 <Icon>
                     <FavoriteBorderOutlined />

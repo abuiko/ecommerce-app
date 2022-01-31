@@ -41,11 +41,7 @@ const ProductContainer = styled.div`
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
-    @media screen and ${device.mobile} {
-        display: none;
-    }
+    justify-content: space-between;    
 `
 
 const ProductList = () => {
