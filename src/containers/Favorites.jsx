@@ -15,8 +15,7 @@ const Title = styled.h1`
     font-weight: 500;
     margin: 40px 0px 20px;
     text-align: center;
-    letter-spacing: 1px;
-    
+    letter-spacing: 1px;    
 `
 
 const Wrapper = styled.div`

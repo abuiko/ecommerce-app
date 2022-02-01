@@ -1,119 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import Product from './Product'
-import { popularProducts } from '../data'
+import { Context } from '../Context'
+
 import { device } from '../responsive'
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
 
 
-const Container = styled.div`  
-    
-   
+
+const Container = styled.div`     
 `
-const TabletContainer = styled.div`
+const Wrapper = styled.div`
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    @media screen and ${device.mobile} {
-        display: none;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-rows: auto; 
+    grid-gap: 9px;  
 `
-const Title = styled.p`
-           
-        
+const Title = styled.p`        
         text-align: center;
         margin: 20px 0px;
         font-size: 28px;
         font-weight: 300;
-    
-`
-const MobileContainer = styled.div`
-    display: none;
-
-    @media screen and ${device.mobile} {
-        
-        width: 100%;
-        height: 300px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
-        background-color: #f5fbfd;
-       
-        
-    }
-`
-const Wrapper = styled.div`
-    height: 100%;
-    display: flex;
-    transition: all 1.5s ease;
-    transform: translateX(${props => props.slideIndex * -100}vw)
-`
-
-const Slide = styled.div`
-    width: 100vw;
-    display: flex;
-    align-items: center;   
-`
-
-const Arrow = styled.div`
-    width: 50px;
-    height: 50px;
-    background-color: #fff7f7;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: ${props => props.direction === 'left' && '10px'};
-    right: ${props => props.direction === 'right' && '10px'};
-    margin: auto;
-    cursor: pointer;
-    opacity: 0.5;
-    z-index: 2;
 `
 
 const Products = () => {
 
     const [slideIndex, setSlideIndex] = useState(0)
-
-    const handleClick = (direction) => {
-        if (direction === 'left') {
-            setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2)
-        } else {
-            setSlideIndex(slideIndex < 7 ? slideIndex + 1 : 0)
-        }
-    }
+    const { allClothes } = useContext(Context)
+    const shuffled = allClothes.sort(() => 0.5 - Math.random())
+    let recommended = shuffled.slice(0, 6)
 
     return (
         <Container>
             <Title>Recommended Products</Title>
 
-            <TabletContainer>
-                {popularProducts.map(item => (
+            <Wrapper>
+                {recommended.map(item => (
                     <Product item={item} key={item.id} />
                 ))}
-            </TabletContainer>
 
-            <MobileContainer>
-                <Arrow direction="left" onClick={() => handleClick("left")}>
-                    <ArrowLeftOutlined />
-                </Arrow>
-                <Wrapper slideIndex={slideIndex}>
-                    {popularProducts.map(item => (
-                        <Slide key={item.id}>
-                            <Product item={item} />
-                        </Slide>
+            </Wrapper>
 
-                    ))}
-                </Wrapper>
-                <Arrow direction="right" onClick={() => handleClick("right")}>
-                    <ArrowRightOutlined />
-                </Arrow>
-            </MobileContainer>
+
 
         </Container>
     )
