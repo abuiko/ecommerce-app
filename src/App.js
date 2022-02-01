@@ -4,6 +4,7 @@ import ProductDetails from './containers/ProductDetails'
 import Register from './containers/Register'
 import Login from './containers/Login'
 import Cart from './containers/Cart'
+import Favorites from './containers/Favorites'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/product_list" element={<ProductList />} />
         <Route path="/product_details" element={<ProductDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

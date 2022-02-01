@@ -1,8 +1,9 @@
-import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons'
-import React from 'react'
+import { Favorite, FavoriteBorderOutlined, SearchOutlined, ShoppingCart, ShoppingCartOutlined } from '@material-ui/icons'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { device } from '../responsive'
 import { Link } from 'react-router-dom'
+import { Context } from '../Context'
 
 const Info = styled.div`
     opacity: 0;
@@ -50,7 +51,7 @@ const Image = styled.img`
    object-fit: cover;
 `
 const HeartIcon = styled.div`
-   
+   cursor: pointer;
 `
 
 const Icon = styled.div`
@@ -88,21 +89,36 @@ const Text = styled.p``
 
 
 const Product = ({ item }) => {
+
+    const { toggleFavorite, removeFromCart, addToCart, cartItems } = useContext(Context)
+
+    function heartIcon() {
+        if (item.isFavorite) {
+            return <Favorite style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
+        } else {
+            return <FavoriteBorderOutlined style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
+        }
+    }
+
+    function cartIcon() {
+        const alreadyInCart = cartItems.find(cartItem => cartItem.id === item.id)
+        if (alreadyInCart) {
+            return <ShoppingCart onClick={() => removeFromCart(item.id)} />
+        } else {
+            return <ShoppingCartOutlined onClick={() => addToCart(item)} />
+        }
+    }
+
     return (
         <Container>
             <CardTop>
                 <Image src={item.url} />
-
-
                 <Info>
                     <Icon type="search" style={{ marginRight: "10px" }}>
                         <Link to="/product_details" style={{ color: "black" }}><SearchOutlined /></Link>
                     </Icon>
                     <Icon>
-                        <Link to="/cart" style={{ color: "black" }}>
-                            <ShoppingCartOutlined />
-                        </Link>
-
+                        {cartIcon()}
                     </Icon>
                 </Info>
             </CardTop>
@@ -113,7 +129,7 @@ const Product = ({ item }) => {
                 </CardText>
 
                 <HeartIcon>
-                    <FavoriteBorderOutlined style={{ fontSize: "27px" }} />
+                    {heartIcon()}
                 </HeartIcon>
 
 
