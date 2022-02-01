@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Info = styled.div`
     opacity: 0;
     width: 100%;
-    height: 100%;
+    height: 320px;
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@ const Info = styled.div`
     cursor: pointer;
 
     @media screen and ${device.mobile} {
-        
+
         opacity: 1;
         background-color: transparent;
         align-items: end;
@@ -29,74 +29,97 @@ const Info = styled.div`
 `
 
 const Container = styled.div`
-    flex: 1;
-    margin: 5px;
     min-width: 280px;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5fbfd;
+    height: 400px;
     position: relative;
-
+    
     &:hover ${Info} {
         opacity: 1;
     }
 
-    @media screen and ${device.tablet} {
-        height: 250px;
-    }
+`
 
+const CardTop = styled.div`
+    width: 100%;
+    height: 320px;       
 `
-const Circle = styled.div`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: white;
-    position:absolute;
-`
+
 const Image = styled.img`
-    height: 75%;
-    z-index: 2;
-    
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 `
+const HeartIcon = styled.div`
+   
+`
+
 const Icon = styled.div`
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background-color: white;
+    background: rgba(255,255,255,0.7);
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 10px;
-    transition: all 0.5s ease;
-    cursor: pointer;
-
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
-        background-color: #e9f5f5;
-        transform: scale(1.1)
+        transform: scale(1.2);
     }
-
-    
-
 `
+
+const CardBottom = styled.div`
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+const CardText = styled.div`
+    
+`
+
+const Title = styled.p`
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+`
+
+const Text = styled.p``
+
+
 const Product = ({ item }) => {
     return (
         <Container>
-            <Circle />
-            <Image src={item.img} />
-            <Info>
-                <Icon>
-                    <ShoppingCartOutlined />
-                </Icon>
-                <Icon type="search">
-                    <Link to="/product_details" style={{ color: "black" }}><SearchOutlined /></Link>
-                </Icon>
-                <Icon>
-                    <FavoriteBorderOutlined />
-                </Icon>
-            </Info>
+            <CardTop>
+                <Image src={item.url} />
+
+
+                <Info>
+                    <Icon type="search" style={{ marginRight: "10px" }}>
+                        <Link to="/product_details" style={{ color: "black" }}><SearchOutlined /></Link>
+                    </Icon>
+                    <Icon>
+                        <Link to="/cart" style={{ color: "black" }}>
+                            <ShoppingCartOutlined />
+                        </Link>
+
+                    </Icon>
+                </Info>
+            </CardTop>
+            <CardBottom>
+                <CardText>
+                    <Title>{item.name}</Title>
+                    <Text>{item.price}</Text>
+                </CardText>
+
+                <HeartIcon>
+                    <FavoriteBorderOutlined style={{ fontSize: "27px" }} />
+                </HeartIcon>
+
+
+            </CardBottom>
+
+
         </Container>
     )
 }
