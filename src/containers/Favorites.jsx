@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Product from '../components/Product'
 import styled from 'styled-components'
-import { Context } from '../Context'
+// import { Context } from '../Context'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
@@ -36,9 +36,12 @@ const TextWrapper = styled.div`
     
 `
 const Text = styled.p`
-    font-size: 22px;
+    
+    font-size: ${props => props.type === "head" ? "26px" : "22px"};
+    font-weight: ${props => props.type === "head" && "500"};
     width: 80%;
     margin-bottom: 40px;
+
 `
 const Button = styled.button`
     background: #000;
@@ -50,26 +53,37 @@ const Button = styled.button`
     cursor: pointer;
     font-weight: 500;
 `
-const Hr = styled.hr``
+const Hr = styled.hr`
+    
+    margin: auto;
+    background: lightgray;
+`
 
 
 const Favorites = () => {
-    const { allClothes } = useContext(Context)
-    const favClothes = allClothes.filter(clothes => clothes.isFavorite === true)
-    const favorite = favClothes.map(item => <Product key={item.id} item={item} />)
+    // const { allClothes } = useContext(Context)
+    // const favClothes = allClothes.filter(clothes => clothes.isFavorite === true)
+    // const favorite = favClothes.map(item => <Product key={item.id} item={item} />)
 
     return (
         <Container>
             <Navbar />
             <Title>Favorites</Title>
-            {favorite.length > 0 ?
+            {/* {favorite.length > 0 ?
                 <Wrapper>{favorite}</Wrapper> :
                 <TextWrapper>
                     <Text>Want to save the items you love? Just click on the heart icon found on the product
         image and it will show up here.</Text>
-                    <Button><Link to="/product_list" style={{ color: "#fff", textDecoration: "none" }}>Browse Now</Link></Button>
+                    <Button><Link to="/products" style={{ color: "#fff", textDecoration: "none" }}>Browse Now</Link></Button>
                 </TextWrapper>
-            }
+            } */}
+
+            <TextWrapper>
+                <Text type="head">There is no items in your wishlist at the moment.</Text>
+                <Text>Want to save the items you love? Just click on the heart icon found on the product
+        image and it will show up here.</Text>
+                <Button><Link to="/products" style={{ color: "#fff", textDecoration: "none" }}>Browse Now</Link></Button>
+            </TextWrapper>
 
             <Hr />
             <Footer />

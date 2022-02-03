@@ -7,7 +7,10 @@ import { device } from '../responsive'
 
 
 
-const Container = styled.div`     
+const Container = styled.div`  
+    padding: 50px 0px;
+    background: #F6F6F6;
+
 `
 const Wrapper = styled.div`
     padding: 20px;

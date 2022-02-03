@@ -6,6 +6,7 @@ import Categories from '../components/Categories'
 import Recommended from '../components/Recommended'
 import NewsLetter from '../components/NewsLetter'
 import Footer from '../components/Footer'
+import AllProducts from './AllProducts'
 
 const Home = () => {
     return (
@@ -13,9 +14,13 @@ const Home = () => {
             <Announcement />
             <Navbar />
             <Slider />
+            {/* <Slider />
+            <Categories /> */}
+            {/* <AllProducts /> */}
+            {/* <Slider />
             <Categories />
             <Recommended />
-            <NewsLetter />
+            <NewsLetter /> */}
             <Footer />
         </div>
     )

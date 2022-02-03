@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { Badge } from '@material-ui/core';
-import { ShoppingCartOutlined, Menu, Favorite, FavoriteBorderOutlined } from '@material-ui/icons';
+import { ShoppingCartOutlined, Menu, Favorite, FavoriteBorderOutlined, AccountCircleOutlined, SearchOutlined } from '@material-ui/icons';
 import { device } from '../responsive'
 
 
 const Container = styled.div`
-    height: 60px;    
+    padding: 15px 0px; 
+    
+       
 `
 const MobileWrapper = styled.div`
     display: none;
@@ -44,6 +46,19 @@ const Left = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+
+`
+
+const NavItem = styled.span`
+    margin-right: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 17px;
+
+    &:hover {
+        color: teal;
+        font-weight: 500;
+    }
 `
 
 const Language = styled.span`
@@ -75,13 +90,23 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    
+    
 `
 
 const MenuItem = styled.div`
-    font-size: 14px;
+    
     cursor: pointer;
-    margin-left: 25px;
+    
+    margin-left: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
 `
+
+
 
 const Navbar = () => {
     return (
@@ -94,29 +119,43 @@ const Navbar = () => {
             </MobileWrapper>
             <Wrapper>
                 <Left>
-                    <Language>EN</Language>
-                    <SearchContainer>
+                    <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Tops</NavItem></Link>
+                    <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Bottoms</NavItem></Link>
+                    <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Dresses</NavItem></Link>
+                    {/* <Language>EN</Language> */}
+                    {/* <SearchContainer>
                         <Input />
                         <AiOutlineSearch style={{ color: "gray", fontSize: '16px' }} />
-                    </SearchContainer>
+                    </SearchContainer> */}
                 </Left>
                 <Center>
                     <Logo><Link to="/" style={{ textDecoration: 'none', color: "black" }}>LOGO</Link></Logo>
                 </Center>
                 <Right>
-                    <MenuItem><Link to="/register" style={{ textDecoration: 'none', color: "black" }}>REGISTER</Link></MenuItem>
-                    <MenuItem><Link to="/register" style={{ textDecoration: 'none', color: "black" }}>SIGN IN</Link></MenuItem>
+                    {/* <MenuItem>
+                        <SearchOutlined style={{ width: "25px", height: "25px" }} />
+                        <Text>Search</Text>
+                    </MenuItem> */}
                     <MenuItem>
-                        <Link to="/favorites">
-                            <FavoriteBorderOutlined />
+                        <Link to="/register" style={{ textDecoration: 'none', color: "black" }}>
+                            <AccountCircleOutlined style={{ width: "25px", height: "25px" }} />
                         </Link>
+
+
+
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to="/favorites" style={{ color: "black" }}>
+                            <FavoriteBorderOutlined style={{ width: "25px", height: "25px" }} />
+                        </Link>
+
+
                     </MenuItem>
                     <MenuItem>
                         <Link to="/cart" style={{ color: "black" }}>
-                            <Badge badgeContent={4} color="primary">
-                                <ShoppingCartOutlined />
-                            </Badge>
+                            <ShoppingCartOutlined style={{ width: "25px", height: "25px" }} />
                         </Link>
+
 
                     </MenuItem>
                 </Right>

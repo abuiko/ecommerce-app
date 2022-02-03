@@ -1,12 +1,12 @@
 import Home from './containers/Home'
-import ProductList from './containers/ProductList';
-import ProductDetails from './containers/ProductDetails'
 import Register from './containers/Register'
 import Login from './containers/Login'
 import Cart from './containers/Cart'
 import Favorites from './containers/Favorites'
 
 import { Routes, Route } from 'react-router-dom'
+import AllProducts from './containers/AllProducts';
+import AllProductDetails from './containers/AllProductDetails';
 
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/product_list" element={<ProductList />} />
-        <Route path="/product_details" element={<ProductDetails />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/products" element={<AllProducts />} />
+        <Route path="/products/:id" element={<AllProductDetails />} />
       </Routes>
     </div>
   );

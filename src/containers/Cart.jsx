@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../components/Navbar'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
-import { Add, Remove } from '@material-ui/icons'
+
+import CartItem from '../components/CartItem'
+import { Context } from '../Context'
 
 import { device } from '../responsive'
 
@@ -68,84 +70,6 @@ const Info = styled.div`
     flex: 3;
 `
 
-const Product = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    @media screen and ${device.tablet} {
-        padding: 20px 0px;
-    }
-`
-const ProductDetails = styled.div`
-    flex: 2;
-    display: flex;
-`
-const Image = styled.img`
-    width: 150px;
-    padding: 20px;
-
-    @media screen and ${device.tablet} {
-        width: 100px;
-        padding: 10px 20px;
-    }
-    
-`
-const Details = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-`
-const ProductName = styled.span``
-const ProductId = styled.span``
-const ProductColor = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: ${props => props.color};
-
-    @media screen and ${device.tablet} {
-        width: 15px;
-        height: 15px;
-    }
-`
-const ProductSize = styled.span``
-
-const PriceDetails = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-`
-const ProductAmountContainer = styled.div`
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-`
-
-const ProductAmount = styled.div`
-    font-size: 24px;
-    margin: 5px;
-
-    @media screen and ${device.tablet} {
-        font-size: 18px;
-    }
-`
-
-const ProductPrice = styled.span`
-    font-size: 30px;
-    font-weight: 200;
-
-    @media screen and ${device.tablet} {
-        font-size: 22px;
-    }
-`
-
-const Hr = styled.hr`
-    background-color: #eee;
-    border: none;
-    height: 1px;
-`
 
 const Summary = styled.div`
     flex: 1;
@@ -186,6 +110,10 @@ const Button = styled.button`
 `
 
 const Cart = () => {
+    const { cartItems } = useContext(Context)
+    const itemsInCart = cartItems.map(item => <CartItem item={item} key={item.id} />)
+
+
     return (
         <Container>
             <Announcement />
@@ -195,56 +123,15 @@ const Cart = () => {
                 <Top>
                     <TopButton>CONTINUE SHOPPING</TopButton>
                     <TopTexts>
-                        <TopText>Shopping Bag(2)</TopText>
-                        <TopText>Your Wishlist(0)</TopText>
+                        <TopText>Items In Cart ({itemsInCart.length})</TopText>
+
                     </TopTexts>
                     <TopButton type="filled">CHECKOUT NOW</TopButton>
                 </Top>
                 <Bottom>
                     <Info>
-                        <Product>
-                            <ProductDetails>
-                                <Image src="https://img.abercrombie.com/is/image/anf/KIC_155-1252-2632-280_prod1?policy=product-medium&wid=350&hei=438" />
-                                <Details>
-                                    <ProductName><b>Product:</b> JEANS</ProductName>
-                                    <ProductId><b>ID:</b> 6454745</ProductId>
-                                    <ProductColor color="black" />
-                                    <ProductSize><b>Size:</b> M</ProductSize>
-                                </Details>
-                            </ProductDetails>
-                            <PriceDetails>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount>2</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>
-                                    $30
-                                </ProductPrice>
-                            </PriceDetails>
-                        </Product>
-                        <Hr />
-                        <Product>
-                            <ProductDetails>
-                                <Image src="https://img.abercrombie.com/is/image/anf/KIC_155-1252-2632-280_prod1?policy=product-medium&wid=350&hei=438" />
-                                <Details>
-                                    <ProductName><b>Product:</b> JEANS</ProductName>
-                                    <ProductId><b>ID:</b> 6454745</ProductId>
-                                    <ProductColor color="black" />
-                                    <ProductSize><b>Size:</b> M</ProductSize>
-                                </Details>
-                            </ProductDetails>
-                            <PriceDetails>
-                                <ProductAmountContainer>
-                                    <Add />
-                                    <ProductAmount>2</ProductAmount>
-                                    <Remove />
-                                </ProductAmountContainer>
-                                <ProductPrice>
-                                    $30
-                                </ProductPrice>
-                            </PriceDetails>
-                        </Product>
+                        {itemsInCart}
+
                     </Info>
                     <Summary>
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>

@@ -6,7 +6,7 @@ function ContextProvider(props) {
     const [allClothes, setAllClothes] = useState([])
     const [cartItems, setCartItems] = useState([])
 
-    const url = "https://raw.githubusercontent.com/abuiko/react-bootstrap-assets/master/images.json"
+    const url = "https://my-c-store-api.herokuapp.com/clothes"
 
     useEffect(() => {
         fetch(url)

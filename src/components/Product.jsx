@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { device } from '../responsive'
 import { Link } from 'react-router-dom'
-import { Context } from '../Context'
+// import { Context } from '../Context'
 
 const Info = styled.div`
     opacity: 0;
@@ -33,6 +33,9 @@ const Container = styled.div`
     min-width: 280px;
     height: 400px;
     position: relative;
+    background: white;
+    -webkit-box-shadow: 2px 5px 10px -9px #000000; 
+    box-shadow: 2px 5px 10px -9px #000000;
     
     &:hover ${Info} {
         opacity: 1;
@@ -90,46 +93,50 @@ const Text = styled.p``
 
 const Product = ({ item }) => {
 
-    const { toggleFavorite, removeFromCart, addToCart, cartItems } = useContext(Context)
+    // const { toggleFavorite, removeFromCart, addToCart, cartItems } = useContext(Context)
 
-    function heartIcon() {
-        if (item.isFavorite) {
-            return <Favorite style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
-        } else {
-            return <FavoriteBorderOutlined style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
-        }
-    }
+    // function heartIcon() {
+    //     if (item.isFavorite) {
+    //         return <Favorite style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
+    //     } else {
+    //         return <FavoriteBorderOutlined style={{ fontSize: "27px" }} onClick={() => toggleFavorite(item.id)} />
+    //     }
+    // }
 
-    function cartIcon() {
-        const alreadyInCart = cartItems.find(cartItem => cartItem.id === item.id)
-        if (alreadyInCart) {
-            return <ShoppingCart onClick={() => removeFromCart(item.id)} />
-        } else {
-            return <ShoppingCartOutlined onClick={() => addToCart(item)} />
-        }
-    }
+    // function cartIcon() {
+    //     const alreadyInCart = cartItems.find(cartItem => cartItem.id === item.id)
+    //     if (alreadyInCart) {
+    //         return <ShoppingCart onClick={() => removeFromCart(item.id)} />
+    //     } else {
+    //         return <ShoppingCartOutlined onClick={() => addToCart(item)} />
+    //     }
+    // }
+
+
 
     return (
         <Container>
             <CardTop>
                 <Image src={item.url} />
                 <Info>
-                    <Icon type="search" style={{ marginRight: "10px" }}>
-                        <Link to="/product_details" style={{ color: "black" }}><SearchOutlined /></Link>
+                    <Icon type="search" style={{ marginRight: "10px" }} >
+                        <Link to={`/products/${item.id}`} style={{ color: "black" }}><SearchOutlined /></Link>
                     </Icon>
                     <Icon>
-                        {cartIcon()}
+                        {/* {cartIcon()} */}
+                        <ShoppingCartOutlined style={{ fontSize: "27px" }} />
                     </Icon>
                 </Info>
             </CardTop>
             <CardBottom>
                 <CardText>
                     <Title>{item.name}</Title>
-                    <Text>{item.price}</Text>
+                    <Text>${item.price}</Text>
                 </CardText>
 
                 <HeartIcon>
-                    {heartIcon()}
+                    {/* {heartIcon()} */}
+                    <FavoriteBorderOutlined style={{ fontSize: "27px" }} />
                 </HeartIcon>
 
 

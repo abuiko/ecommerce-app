@@ -7,6 +7,7 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 30px 0px;
 
     @media screen and ${device.tablet} {
         flex-direction: column;
@@ -23,6 +24,7 @@ const Left = styled.div`
 const Logo = styled.h1``
 const Desc = styled.div`
     margin: 20px 0px;
+    width: 80%;
 `
 const SocialContainer = styled.div`
     display: flex;
@@ -61,6 +63,9 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex: 1;
     padding: 20px;
+   
+    
+    
 `
 
 const ContactItem = styled.div`
