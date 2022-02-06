@@ -5,7 +5,9 @@ import Product from '../components/Product'
 import styled from 'styled-components'
 // import { Context } from '../Context'
 import { Link } from 'react-router-dom'
-
+import { FavoriteBorderOutlined } from '@material-ui/icons'
+import { device } from '../responsive'
+import Announcement from '../components/Announcement'
 const Container = styled.div`
     
 `
@@ -26,37 +28,60 @@ const Wrapper = styled.div`
     grid-template-rows: auto; 
     grid-gap: 9px;
 `
-const TextWrapper = styled.div`
-    min-height: 60vh;
-    text-align: center;
+const EmptyFavWrapper = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    
+    min-height: 60vh;
+    background-color: #F8F8F8;
+   
 `
-const Text = styled.p`
-    
-    font-size: ${props => props.type === "head" ? "26px" : "22px"};
-    font-weight: ${props => props.type === "head" && "500"};
-    width: 80%;
-    margin-bottom: 40px;
 
+const Icon = styled.div`
+    border: 1px solid #000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: white;
 `
-const Button = styled.button`
-    background: #000;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: 500;
+const EmptyFavText = styled.p`
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 20px;
 `
-const Hr = styled.hr`
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     
-    margin: auto;
-    background: lightgray;
+`
+const ButtonMenu = styled.button`
+    width: 200px;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    background: white;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: ${props => props.type === "leftBtn" && "10px"};
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #000;
+        color: white;
+    }
+
+    @media screen and ${device.mobile} {
+        margin-right: 0px;
+        margin-bottom: 10px;
+      
+    }
+    
 `
 
 
@@ -67,8 +92,8 @@ const Favorites = () => {
 
     return (
         <Container>
+            <Announcement />
             <Navbar />
-            <Title>Favorites</Title>
             {/* {favorite.length > 0 ?
                 <Wrapper>{favorite}</Wrapper> :
                 <TextWrapper>
@@ -78,14 +103,19 @@ const Favorites = () => {
                 </TextWrapper>
             } */}
 
-            <TextWrapper>
-                <Text type="head">There is no items in your wishlist at the moment.</Text>
-                <Text>Want to save the items you love? Just click on the heart icon found on the product
-        image and it will show up here.</Text>
-                <Button><Link to="/products" style={{ color: "#fff", textDecoration: "none" }}>Browse Now</Link></Button>
-            </TextWrapper>
+            <EmptyFavWrapper>
+                <Icon>
+                    <FavoriteBorderOutlined style={{ fontSize: "35px" }} />
+                </Icon>
+                <EmptyFavText>Your Shopping Bag is Empty</EmptyFavText>
+                <ButtonContainer>
+                    <ButtonMenu type="leftBtn">Shop Women's</ButtonMenu>
+                    <ButtonMenu>Shop Men's</ButtonMenu>
+                </ButtonContainer>
 
-            <Hr />
+            </EmptyFavWrapper>
+
+
             <Footer />
         </Container>
 
