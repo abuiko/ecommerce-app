@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { addToCart, removeFromCart } from '../redux/action'
+import { addToCart } from '../redux/action'
 import { useParams } from 'react-router-dom'
 import NewsLetter from '../components/NewsLetter'
 

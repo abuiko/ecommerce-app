@@ -109,50 +109,52 @@ const Button = styled.button`
 `
 
 const Cart = () => {
-    // const { cartItems } = useContext(Context)
-    // const itemsInCart = cartItems.map(item => <CartItem item={item} key={item.id} />)
 
     const items = useSelector(state => state.handleCart)
     const itemsInCart = items.map(item => <CartItem item={item} key={item.id} />)
     return (
         <Container>
+            {items.length > 0 ?
+                <Wrapper>
+                    <Title>YOUR CART</Title>
+                    <Top>
+                        <TopButton>CONTINUE SHOPPING</TopButton>
+                        <TopTexts>
 
-            {/* <EmptySection title="Shopping Cart" icon={<ShoppingCartOutlined style={{ fontSize: "35px" }} />} /> */}
-            <Wrapper>
-                <Title>YOUR CART</Title>
-                <Top>
-                    <TopButton>CONTINUE SHOPPING</TopButton>
-                    <TopTexts>
+                            <TopText>Items In Cart ({items.length})</TopText>
 
-                        <TopText>Items In Cart ({items.length})</TopText>
+                        </TopTexts>
+                        <TopButton type="filled">CHECKOUT NOW</TopButton>
+                    </Top>
+                    <Bottom>
+                        <Info>{itemsInCart}</Info>
+                        <Summary>
+                            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                            <SummaryItem>
+                                <SummaryItemText>Subtotal</SummaryItemText>
+                                <SummaryItemPrice>$60</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Estimated Shipping</SummaryItemText>
+                                <SummaryItemPrice>$5.65</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem>
+                                <SummaryItemText>Shipping Discount</SummaryItemText>
+                                <SummaryItemPrice>$-5.65</SummaryItemPrice>
+                            </SummaryItem>
+                            <SummaryItem type="total">
+                                <SummaryItemText>Total</SummaryItemText>
+                                <SummaryItemPrice>$60</SummaryItemPrice>
+                            </SummaryItem>
+                            <Button>CHECKOUT NOW</Button>
+                        </Summary>
+                    </Bottom>
+                </Wrapper>
+                :
+                <EmptySection title="Shopping Cart" icon={<ShoppingCartOutlined style={{ fontSize: "35px" }} />} />
+            }
 
-                    </TopTexts>
-                    <TopButton type="filled">CHECKOUT NOW</TopButton>
-                </Top>
-                <Bottom>
-                    <Info>{itemsInCart}</Info>
-                    <Summary>
-                        <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-                        <SummaryItem>
-                            <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$60</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Estimated Shipping</SummaryItemText>
-                            <SummaryItemPrice>$5.65</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Shipping Discount</SummaryItemText>
-                            <SummaryItemPrice>$-5.65</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem type="total">
-                            <SummaryItemText>Total</SummaryItemText>
-                            <SummaryItemPrice>$60</SummaryItemPrice>
-                        </SummaryItem>
-                        <Button>CHECKOUT NOW</Button>
-                    </Summary>
-                </Bottom>
-            </Wrapper>
+
 
         </Container>
     )
