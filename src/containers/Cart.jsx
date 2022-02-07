@@ -1,7 +1,4 @@
 import React, { useContext } from 'react'
-import Navbar from '../components/Navbar'
-import Announcement from '../components/Announcement'
-import Footer from '../components/Footer'
 import styled from 'styled-components'
 
 import CartItem from '../components/CartItem'
@@ -118,8 +115,7 @@ const Cart = () => {
 
     return (
         <Container>
-            <Announcement />
-            <Navbar />
+
             <EmptySection title="Shopping Cart" icon={<ShoppingCartOutlined style={{ fontSize: "35px" }} />} />
             {/* <Wrapper>
                 <Title>YOUR CART</Title>
@@ -156,7 +152,7 @@ const Cart = () => {
                     </Summary>
                 </Bottom>
             </Wrapper> */}
-            <Footer />
+
         </Container>
     )
 }

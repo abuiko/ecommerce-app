@@ -1,13 +1,10 @@
 import React, { useContext } from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import Product from '../components/Product'
 import styled from 'styled-components'
 // import { Context } from '../Context'
 import { Link } from 'react-router-dom'
 import { FavoriteBorderOutlined } from '@material-ui/icons'
 import { device } from '../responsive'
-import Announcement from '../components/Announcement'
 import EmptySection from '../components/EmptySection'
 const Container = styled.div`
     
@@ -39,8 +36,7 @@ const Favorites = () => {
 
     return (
         <Container>
-            <Announcement />
-            <Navbar />
+
             {/* {favorite.length > 0 ?
                 <Wrapper>{favorite}</Wrapper> :
                 <TextWrapper>
@@ -53,7 +49,7 @@ const Favorites = () => {
             <EmptySection icon={<FavoriteBorderOutlined style={{ fontSize: "35px" }} />} title="Wishlist" />
 
 
-            <Footer />
+
         </Container>
 
 

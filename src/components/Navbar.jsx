@@ -8,9 +8,7 @@ import { device } from '../responsive'
 
 
 const Container = styled.div`
-    padding: 15px 0px; 
-    
-       
+    padding: 15px 0px;    
 `
 const MobileWrapper = styled.div`
     display: none;
@@ -60,19 +58,18 @@ const NavItem = styled.span`
         font-weight: 500;
     }
 `
+// const Language = styled.span`
+//     font-size: 14px;
+//     cursor: pointer;
+// `
 
-const Language = styled.span`
-    font-size: 14px;
-    cursor: pointer;
-`
-
-const SearchContainer = styled.div`
-    border: 1px solid lightgray;
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
-    padding: 5px;
-`
+// const SearchContainer = styled.div`
+//     border: 1px solid lightgray;
+//     display: flex;
+//     align-items: center;
+//     margin-left: 25px;
+//     padding: 5px;
+// `
 const Input = styled.input`
     border: none;
 `
@@ -89,26 +86,21 @@ const Right = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    
-    
+    justify-content: flex-end;  
 `
-
 const MenuItem = styled.div`
-    
     cursor: pointer;
-    
     margin-left: 35px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    
+    justify-content: space-between; 
 `
 
 
 
 const Navbar = () => {
+
     return (
         <Container>
             <MobileWrapper>
@@ -122,27 +114,19 @@ const Navbar = () => {
                     <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Tops</NavItem></Link>
                     <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Bottoms</NavItem></Link>
                     <Link to="/products" style={{ textDecoration: 'none', color: "black" }}><NavItem>Dresses</NavItem></Link>
-                    {/* <Language>EN</Language> */}
-                    {/* <SearchContainer>
-                        <Input />
-                        <AiOutlineSearch style={{ color: "gray", fontSize: '16px' }} />
-                    </SearchContainer> */}
                 </Left>
                 <Center>
                     <Logo><Link to="/" style={{ textDecoration: 'none', color: "black" }}>LOGO</Link></Logo>
                 </Center>
                 <Right>
-                    {/* <MenuItem>
-                        <SearchOutlined style={{ width: "25px", height: "25px" }} />
-                        <Text>Search</Text>
-                    </MenuItem> */}
                     <MenuItem>
-                        <Link to="/register" style={{ textDecoration: 'none', color: "black" }}>
+                        <Link
+                            to="/login"
+                            style={{ textDecoration: 'none', color: "black" }}
+
+                        >
                             <AccountCircleOutlined style={{ width: "25px", height: "25px" }} />
                         </Link>
-
-
-
                     </MenuItem>
                     <MenuItem>
                         <Link to="/favorites" style={{ color: "black" }}>

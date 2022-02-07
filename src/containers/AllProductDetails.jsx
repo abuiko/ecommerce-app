@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-
-import Announcement from '../components/Announcement'
-import Navbar from '../components/Navbar'
 import NewsLetter from '../components/NewsLetter'
-import Footer from '../components/Footer'
 
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
@@ -201,15 +197,14 @@ const AllProductDetails = () => {
 
     return (
         <Container>
-            <Announcement />
-            <Navbar />
+
 
             {loading ? <Loading /> : <ShowProduct />}
 
 
 
             <NewsLetter />
-            <Footer />
+
         </Container>
     )
 }

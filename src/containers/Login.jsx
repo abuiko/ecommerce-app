@@ -2,16 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(
-        rgba(255,255,255,0.5), 
-        rgba(255,255,255,0.5)
-        ),
-        url("https://images.unsplash.com/photo-1490725263030-1f0521cec8ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    
+    width: 600px;
+    height: 400px;
+    background-color: lightblue;
 
     display: flex;
     align-items: center;
@@ -19,9 +13,10 @@ const Container = styled.div`
 
 `
 const Wrapper = styled.div`
+        width: 60%;
         padding: 20px;
-        width: 25%;
-        background-color: white;
+        
+        
 `
 const Title = styled.h1`
         font-size: 24px;

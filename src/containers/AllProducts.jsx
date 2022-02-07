@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import NewsLetter from '../components/NewsLetter'
+
 // import { Link } from 'react-router-dom'
 
 const Container = styled.div`
@@ -12,6 +11,7 @@ const Container = styled.div`
 
 const LoadingWrapper = styled.p`
     text-align: center;
+    
 `
 const Title = styled.h1`
     margin: 40px 20px 40px;
@@ -90,6 +90,7 @@ const AllProducts = () => {
         return (
             <LoadingWrapper>
                 Loading...
+
             </LoadingWrapper>
 
         )
@@ -124,12 +125,12 @@ const AllProducts = () => {
 
     return (
         <Container>
-            <Navbar />
+
 
             <Title>Latest Trends</Title>
             {loading ? <Loading /> : <ShowProducts />}
             <NewsLetter />
-            <Footer />
+
 
         </Container>
     )
