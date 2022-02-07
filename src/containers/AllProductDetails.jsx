@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart, removeFromCart } from '../redux/action'
 import { useParams } from 'react-router-dom'
 import NewsLetter from '../components/NewsLetter'
 
@@ -12,8 +14,6 @@ const Wrapper = styled.div`
     display: flex;
     max-width: 1280px;
     margin: auto;
-   
-
     @media screen and ${device.mobile} {
         flex-direction: column;
     }
@@ -25,7 +25,6 @@ const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    
 `
 const InfoContainer = styled.div`
     display: flex;
@@ -33,7 +32,6 @@ const InfoContainer = styled.div`
     justify-content: center;
     flex: 1;
     padding: 0px 50px;
-
     @media screen and ${device.tablet} {
         padding: 10px 10px;
     }
@@ -41,38 +39,31 @@ const InfoContainer = styled.div`
 const Title = styled.h1`
     font-weight: 300;
     text-transform: capitalize;
-
 `
 const Desc = styled.p`
-    margin: 20px 0px;
-    
+    margin: 20px 0px;  
 `
 const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
 `
-
 const FilterContainer = styled.div`
     width: 100%;
     margin: 30px 0px;
     display: flex;
     justify-content: space-between;
-
     @media screen and ${device.mobile} {
         width: 100%;
     }
 `
-
 const Filter = styled.div`
     display: flex;
     align-items: center;
 `
-
 const FilterTitle = styled.span`
     font-size: 20px;
     font-weight: 200;
 `
-
 const FilterColor = styled.div`
     width: 30px;
     height: 30px;
@@ -81,7 +72,6 @@ const FilterColor = styled.div`
     margin: 0px 15px;
     cursor: pointer;
 `
-
 const FilterSize = styled.select`
     margin-left: 10px;
     padding: 10px;
@@ -126,13 +116,15 @@ const Button = styled.button`
         color: white;
     }
 `
-
-
-
 const AllProductDetails = () => {
     const { id } = useParams()
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
+
+    const dispatch = useDispatch()
+    const addProduct = (product) => {
+        dispatch(addToCart(product))
+    }
 
     useEffect(() => {
         const getProduct = async () => {
@@ -187,10 +179,9 @@ const AllProductDetails = () => {
                             <Amount>1</Amount>
                             <Add />
                         </AmountContainer>
-                        <Button>ADD TO CART</Button>
+                        <Button onClick={() => addProduct(product)}>ADD TO CART</Button>
                     </AddContainer>
                 </InfoContainer>
-
             </Wrapper>
         )
     }
@@ -198,10 +189,7 @@ const AllProductDetails = () => {
     return (
         <Container>
 
-
             {loading ? <Loading /> : <ShowProduct />}
-
-
 
             <NewsLetter />
 

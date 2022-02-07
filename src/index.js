@@ -4,12 +4,15 @@ import App from './App';
 // import { ContextProvider } from './Context'
 
 import { BrowserRouter as Router } from 'react-router-dom'
-
+import { Provider } from 'react-redux'
+import store from './redux/store'
 
 ReactDOM.render(
 
   <Router>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>
 
 

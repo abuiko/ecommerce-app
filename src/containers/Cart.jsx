@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-
+import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 // import { Context } from '../Context'
 
@@ -112,24 +112,25 @@ const Cart = () => {
     // const { cartItems } = useContext(Context)
     // const itemsInCart = cartItems.map(item => <CartItem item={item} key={item.id} />)
 
-
+    const items = useSelector(state => state.handleCart)
+    const itemsInCart = items.map(item => <CartItem item={item} key={item.id} />)
     return (
         <Container>
 
-            <EmptySection title="Shopping Cart" icon={<ShoppingCartOutlined style={{ fontSize: "35px" }} />} />
-            {/* <Wrapper>
+            {/* <EmptySection title="Shopping Cart" icon={<ShoppingCartOutlined style={{ fontSize: "35px" }} />} /> */}
+            <Wrapper>
                 <Title>YOUR CART</Title>
                 <Top>
                     <TopButton>CONTINUE SHOPPING</TopButton>
                     <TopTexts>
-                        
-                        <TopText>Items In Cart (0)</TopText>
+
+                        <TopText>Items In Cart ({items.length})</TopText>
 
                     </TopTexts>
                     <TopButton type="filled">CHECKOUT NOW</TopButton>
                 </Top>
                 <Bottom>
-                    <Info></Info>
+                    <Info>{itemsInCart}</Info>
                     <Summary>
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                         <SummaryItem>
@@ -151,7 +152,7 @@ const Cart = () => {
                         <Button>CHECKOUT NOW</Button>
                     </Summary>
                 </Bottom>
-            </Wrapper> */}
+            </Wrapper>
 
         </Container>
     )

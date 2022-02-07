@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
 
+import { useDispatch } from 'react-redux'
+import { removeFromCart } from '../redux/action'
+
 import { device } from '../responsive'
 
 const Container = styled.div``
@@ -29,6 +32,7 @@ const Image = styled.img`
     
 `
 const Details = styled.div`
+    margin: 15px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -39,7 +43,7 @@ const ProductColor = styled.div`
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #${props => props.color};
+    background-color: ${props => props.color};
 
     @media screen and ${device.tablet} {
         width: 15px;
@@ -79,6 +83,12 @@ const ProductPrice = styled.span`
     }
 `
 
+const RemoveItem = styled.span`
+    cursor: pointer;
+    color: red;
+    font-size: 16px;
+`
+
 const Hr = styled.hr`
     background-color: #eee;
     border: none;
@@ -86,16 +96,23 @@ const Hr = styled.hr`
 `
 
 const CartItem = ({ item }) => {
+
+    const dispatch = useDispatch()
+    const removeProduct = (product) => {
+        dispatch(removeFromCart(product))
+    }
+
     return (
         <Container>
             <Product>
                 <ProductDetails>
                     <Image src={item.url} />
                     <Details>
-                        <ProductName><b>Product:</b> {item.name}</ProductName>
+                        <ProductName><b>Product:</b> {item.name.toUpperCase()}</ProductName>
                         <ProductId><b>ID:</b> {item.id}</ProductId>
                         <ProductColor color={item.color} />
                         <ProductSize><b>Size:</b> M</ProductSize>
+                        <RemoveItem onClick={() => removeProduct(item)}>Remove Item</RemoveItem>
                     </Details>
                 </ProductDetails>
                 <PriceDetails>

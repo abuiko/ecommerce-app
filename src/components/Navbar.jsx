@@ -1,8 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { Badge } from '@material-ui/core';
 import { ShoppingCartOutlined, Menu, Favorite, FavoriteBorderOutlined, AccountCircleOutlined, SearchOutlined } from '@material-ui/icons';
 import { device } from '../responsive'
 
@@ -95,11 +95,30 @@ const MenuItem = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between; 
+
+    position: ${props => props.type === "cart" && "relative"}
+`
+const Badge = styled.span`
+    background-color: red;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    color: white;
+    font-weight: 700;
 `
 
 
 
 const Navbar = () => {
+
+    const state = useSelector((state) => state.handleCart)
 
     return (
         <Container>
@@ -135,9 +154,10 @@ const Navbar = () => {
 
 
                     </MenuItem>
-                    <MenuItem>
+                    <MenuItem type="cart">
                         <Link to="/cart" style={{ color: "black" }}>
                             <ShoppingCartOutlined style={{ width: "25px", height: "25px" }} />
+                            <Badge>{state.length}</Badge>
                         </Link>
 
 
