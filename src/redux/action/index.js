@@ -15,3 +15,21 @@ export const removeFromCart = (product) => {
         payload: product
     }
 }
+
+// ADD ITEM TO WISHLIST
+
+export const addToWishlist = (product) => {
+    return {
+        type: "ADD_TO_WISHLIST",
+        payload: product
+    }
+}
+
+// REMOVE ITEM FROM WISHLIST
+
+export const removeFromWishlist = (product) => {
+    return {
+        type: "REMOVE_FROM_WISHLIST",
+        payload: product
+    }
+}

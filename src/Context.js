@@ -4,7 +4,6 @@ const Context = createContext()
 
 function ContextProvider(props) {
     const [allClothes, setAllClothes] = useState([])
-    const [cartItems, setCartItems] = useState([])
 
     const url = "https://my-c-store-api.herokuapp.com/clothes"
 
@@ -28,26 +27,14 @@ function ContextProvider(props) {
         setAllClothes(updatedArr)
     }
 
-    function addToCart(newItem) {
-        setCartItems(prevItems => [...prevItems, newItem])
-    }
-    function removeFromCart(id) {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== id))
-    }
 
-    function emptyCart() {
-        setCartItems([])
-    }
 
     return (
         <Context.Provider
             value={{
                 allClothes,
                 toggleFavorite,
-                addToCart,
-                removeFromCart,
-                emptyCart,
-                cartItems
+
             }}>
             {props.children}
         </Context.Provider>

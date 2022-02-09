@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
 import NewsLetter from '../components/NewsLetter'
+import Skeleton from 'react-loading-skeleton'
+import { Oval } from 'react-loader-spinner'
 
 // import { Link } from 'react-router-dom'
 
@@ -11,6 +13,7 @@ const Container = styled.div`
 
 const LoadingWrapper = styled.p`
     text-align: center;
+    display: flex;
     
 `
 const Title = styled.h1`
@@ -55,11 +58,16 @@ const ProductContainer = styled.div`
     grid-gap: 9px;    
 `
 
+const LoadingText = styled.p``
+const Spinner = styled.div``
+
 const AllProducts = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState(data)
     const [loading, setLoading] = useState(false)
     // let componentMounted = true
+
+
 
     const ref = useRef(false)
 
@@ -89,8 +97,11 @@ const AllProducts = () => {
     const Loading = () => {
         return (
             <LoadingWrapper>
-                Loading...
+                <Spinner>
+                    <Oval color="#000" height={60} width={60} />
+                </Spinner>
 
+                <LoadingText>Loading...</LoadingText>
             </LoadingWrapper>
 
         )
@@ -128,7 +139,8 @@ const AllProducts = () => {
 
 
             <Title>Latest Trends</Title>
-            {loading ? <Loading /> : <ShowProducts />}
+            {/* {loading ? <Loading /> : <ShowProducts />} */}
+            <Loading />
             <NewsLetter />
 
 

@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 import { FavoriteBorderOutlined } from '@material-ui/icons'
 import { device } from '../responsive'
 import EmptySection from '../components/EmptySection'
+
+import { useSelector } from 'react-redux'
+
 const Container = styled.div`
     
 `
@@ -30,29 +33,19 @@ const Wrapper = styled.div`
 
 
 const Favorites = () => {
-    // const { allClothes } = useContext(Context)
-    // const favClothes = allClothes.filter(clothes => clothes.isFavorite === true)
-    // const favorite = favClothes.map(item => <Product key={item.id} item={item} />)
+
+    const items = useSelector(state => state.handleWishlist)
+    const itemsInWishlist = items.map(item => <Product item={item} key={item.id} />)
 
     return (
         <Container>
-
-            {/* {favorite.length > 0 ?
-                <Wrapper>{favorite}</Wrapper> :
-                <TextWrapper>
-                    <Text>Want to save the items you love? Just click on the heart icon found on the product
-        image and it will show up here.</Text>
-                    <Button><Link to="/products" style={{ color: "#fff", textDecoration: "none" }}>Browse Now</Link></Button>
-                </TextWrapper>
-            } */}
-
-            <EmptySection icon={<FavoriteBorderOutlined style={{ fontSize: "35px" }} />} title="Wishlist" />
-
+            {items.length > 0 ?
+                <Wrapper>{itemsInWishlist}</Wrapper> :
+                <EmptySection icon={<FavoriteBorderOutlined style={{ fontSize: "35px" }} />} title="Wishlist" />
+            }
 
 
         </Container>
-
-
     )
 }
 

@@ -1,8 +1,11 @@
-import { Favorite, FavoriteBorderOutlined, SearchOutlined, ShoppingCart, ShoppingCartOutlined } from '@material-ui/icons'
+import { Favorite, FavoriteBorderOutlined } from '@material-ui/icons'
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { device } from '../responsive'
 import { Link } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
+import { addToWishlist, removeFromWishlist } from '../redux/action'
 // import { Context } from '../Context'
 
 const Info = styled.div`
@@ -21,14 +24,10 @@ const Info = styled.div`
     cursor: pointer;
 
     @media screen and ${device.mobile} {
-
         opacity: 1;
         background-color: transparent;
-        align-items: end;
-        justify-content: center;     
     }
 `
-
 const Container = styled.div`
     min-width: 280px;
     height: 400px;
@@ -40,48 +39,40 @@ const Container = styled.div`
     &:hover ${Info} {
         opacity: 1;
     }
-
 `
-
 const CardTop = styled.div`
     width: 100%;
     height: 320px;       
 `
-
 const Image = styled.img`
    width: 100%;
    height: 100%;
    object-fit: cover;
 `
-const HeartIcon = styled.div`
+const Icon = styled.div`
    cursor: pointer;
 `
-
-const Icon = styled.div`
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.7);
+const DetailsButton = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 7px;
     transition: all 0.4s ease-in-out;
 
     &:hover {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 `
-
 const CardBottom = styled.div`
     padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 `
-const CardText = styled.div`
-    
+const CardText = styled.div` 
 `
-
 const Title = styled.p`
     font-size: 20px;
     text-transform: capitalize;
@@ -93,7 +84,17 @@ const Text = styled.p``
 
 const Product = ({ item }) => {
 
-    // const { toggleFavorite, removeFromCart, addToCart, cartItems } = useContext(Context)
+    const dispatch = useDispatch()
+    const addProduct = (product) => {
+        dispatch(addToWishlist(product))
+    }
+
+    const removeProduct = (product) => {
+        dispatch(removeFromWishlist(product))
+    }
+
+
+    // const { toggleFavorite } = useContext(Context)
 
     // function heartIcon() {
     //     if (item.isFavorite) {
@@ -103,29 +104,18 @@ const Product = ({ item }) => {
     //     }
     // }
 
-    // function cartIcon() {
-    //     const alreadyInCart = cartItems.find(cartItem => cartItem.id === item.id)
-    //     if (alreadyInCart) {
-    //         return <ShoppingCart onClick={() => removeFromCart(item.id)} />
-    //     } else {
-    //         return <ShoppingCartOutlined onClick={() => addToCart(item)} />
-    //     }
-    // }
-
-
 
     return (
         <Container>
             <CardTop>
                 <Image src={item.url} />
                 <Info>
-                    <Icon type="search" style={{ marginRight: "10px" }} >
-                        <Link to={`/products/${item.id}`} style={{ color: "black" }}><SearchOutlined /></Link>
-                    </Icon>
-                    <Icon>
-                        {/* {cartIcon()} */}
-                        <ShoppingCartOutlined style={{ fontSize: "27px" }} />
-                    </Icon>
+                    <Link to={`/products/${item.id}`} style={{ color: "black", textDecoration: "none" }}>
+                        <DetailsButton>
+                            Details
+                        </DetailsButton>
+                    </Link>
+
                 </Info>
             </CardTop>
             <CardBottom>
@@ -134,10 +124,10 @@ const Product = ({ item }) => {
                     <Text>${item.price}</Text>
                 </CardText>
 
-                <HeartIcon>
-                    {/* {heartIcon()} */}
-                    <FavoriteBorderOutlined style={{ fontSize: "27px" }} />
-                </HeartIcon>
+                <Icon onClick={() => console.log(item.isFavorite)}>
+                    <FavoriteBorderOutlined style={{ fontSize: "29px" }} />
+                    {/* <Favorite style={{ fontSize: "29px" }} /> */}
+                </Icon>
 
 
             </CardBottom>
