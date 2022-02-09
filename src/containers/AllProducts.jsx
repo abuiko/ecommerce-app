@@ -12,10 +12,20 @@ const Container = styled.div`
 `
 
 const LoadingWrapper = styled.p`
-    text-align: center;
+    min-height: 50vh;
     display: flex;
-    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 `
+const LoadingText = styled.p`
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+`
+const Spinner = styled.div``
+
 const Title = styled.h1`
     margin: 40px 20px 40px;
     padding-left: 20px;
@@ -26,7 +36,7 @@ const Title = styled.h1`
 const FilterButtons = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 `
 
 const Button = styled.button`
@@ -58,8 +68,7 @@ const ProductContainer = styled.div`
     grid-gap: 9px;    
 `
 
-const LoadingText = styled.p``
-const Spinner = styled.div``
+
 
 const AllProducts = () => {
     const [data, setData] = useState([])
@@ -115,13 +124,7 @@ const AllProducts = () => {
     const ShowProducts = () => {
         return (
             <>
-                <FilterButtons>
-                    <Button onClick={() => setFilter(data)}>All</Button>
-                    <Button onClick={() => filterProduct("top")}>Tops</Button>
-                    <Button onClick={() => filterProduct("bottom")}>Bottoms</Button>
-                    <Button onClick={() => filterProduct("dress")}>Dresses</Button>
-                    <Button onClick={() => filterProduct("swimsuit")}>Swimsuits</Button>
-                </FilterButtons>
+
                 <Wrapper>
                     <ProductContainer>
                         {filter.map(item => (
@@ -139,6 +142,13 @@ const AllProducts = () => {
 
 
             <Title>Latest Trends</Title>
+            <FilterButtons>
+                <Button onClick={() => setFilter(data)}>All</Button>
+                <Button onClick={() => filterProduct("top")}>Tops</Button>
+                <Button onClick={() => filterProduct("bottom")}>Bottoms</Button>
+                <Button onClick={() => filterProduct("dress")}>Dresses</Button>
+                <Button onClick={() => filterProduct("swimsuit")}>Swimsuits</Button>
+            </FilterButtons>
             {/* {loading ? <Loading /> : <ShowProducts />} */}
             <Loading />
             <NewsLetter />
