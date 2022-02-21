@@ -1,22 +1,16 @@
 import React from 'react'
-import Slider from '../components/Slider'
-import Categories from '../components/Categories'
-import Recommended from '../components/Recommended'
+
 import NewsLetter from '../components/NewsLetter'
+import NewArrivals from '../components/NewArrivals'
 
 
 const Home = () => {
     return (
         <div>
 
-            <Slider />
-            {/* <Slider />
-            <Categories /> */}
-            {/* <AllProducts /> */}
-            {/* <Slider />
-            <Categories />
-            <Recommended />
-            <NewsLetter /> */}
+            <NewArrivals />
+            <NewsLetter />
+
 
         </div>
     )

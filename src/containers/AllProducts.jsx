@@ -11,7 +11,7 @@ const Container = styled.div`
     
 `
 
-const LoadingWrapper = styled.p`
+const LoadingWrapper = styled.div`
     min-height: 50vh;
     display: flex;
     flex-direction: column;
@@ -74,9 +74,6 @@ const AllProducts = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState(data)
     const [loading, setLoading] = useState(false)
-    // let componentMounted = true
-
-
 
     const ref = useRef(false)
 
@@ -149,8 +146,7 @@ const AllProducts = () => {
                 <Button onClick={() => filterProduct("dress")}>Dresses</Button>
                 <Button onClick={() => filterProduct("swimsuit")}>Swimsuits</Button>
             </FilterButtons>
-            {/* {loading ? <Loading /> : <ShowProducts />} */}
-            <Loading />
+            {loading ? <Loading /> : <ShowProducts />}
             <NewsLetter />
 
 

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Container = styled.div`
     flex: 1;
     margin: 3px;
-    height: 70vh; 
+    height: 80vh; 
     position: relative;  
 
     @media screen and ${device.tablet} {
