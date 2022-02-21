@@ -8,6 +8,8 @@ import { device } from '../responsive'
 
 
 const Container = styled.div`
+    max-width: 1900px;
+    margin: auto;
     padding: 15px 0px;    
 `
 const MobileWrapper = styled.div`

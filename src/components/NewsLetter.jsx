@@ -6,7 +6,7 @@ import { device } from '../responsive'
 
 const Container = styled.div`
     height: 60vh;
-    background-color: #fcf5f5;
+    background-color: #fdfdfd;
     display: flex; 
     align-items: center;
     justify-content: center;
@@ -18,21 +18,23 @@ const Container = styled.div`
     
 `
 const Title = styled.h1`
-    font-size: 70px;
+    font-size: 4rem;
+    font-weight: 500;
     margin-bottom: 20px;
 
 
     @media screen and ${device.mobile} {
-        font-size: 30px;
+        font-size: 1.9rem;
     }
 `
 const Desc = styled.div`
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
 
     @media screen and ${device.mobile} {
-        font-size: 18px;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
     }
 `
 const InputContainer = styled.div`
@@ -42,11 +44,19 @@ const InputContainer = styled.div`
     display: flex;
     justify-content: space-between;
     border: 1px solid lightgray;
+    @media screen and ${device.mobile} {
+        width: 70%;
+        height: 35px;
+    }
 `
 const Input = styled.input`
     border: none;
     flex: 8;
     padding-left: 20px; 
+
+    @media screen and ${device.mobile} {
+        padding-left: 10px;
+    }
 `
 const Button = styled.button`
     flex: 1;
