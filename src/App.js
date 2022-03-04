@@ -12,15 +12,17 @@ import Announcement from './components/Announcement'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-const Container = styled.div``
+const Container = styled.div`
+
+`
 
 function App() {
   return (
     <Container>
-      <Announcement />
+
       <Navbar />
+
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />

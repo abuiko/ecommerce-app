@@ -2,12 +2,19 @@ import styled from 'styled-components'
 import { device } from '../../responsive'
 import { Link as LinkR } from 'react-router-dom'
 
-export const Container = styled.div``
+export const Container = styled.div`
+    
+`
 export const Wrapper = styled.div`
-    height: 70vh;
+    height: 500px;
     display: flex;
     justify-content: flex-between;
     position: relative;
+    margin: 0rem 0rem 0.3rem;
+
+    @media screen and ${device.mobile} {
+        margin: 0rem 0rem 1rem;
+    }
 `
 
 export const Left = styled.div`

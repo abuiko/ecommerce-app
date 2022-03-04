@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-    height: 30px;
+    height: 100px;
     background-color: teal;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: bolder;
+    margin-bottom: 0.3rem;
 `
 
 const Announcement = () => {

@@ -8,9 +8,13 @@ import { device } from '../responsive'
 
 
 const Container = styled.div`
-    max-width: 1900px;
-    margin: auto;
-    padding: 15px 0px;    
+   position: fixed;
+   top: 0;
+   width: 100%;
+    padding: 15px 0px;  
+    height: 60px;
+    z-index: 99;
+    background: white;  
 `
 const MobileWrapper = styled.div`
     display: none;
@@ -32,6 +36,8 @@ const MenuIcon = styled.div`
 `
 
 const Wrapper = styled.div`
+    max-width: 1400px;
+    margin: auto;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
