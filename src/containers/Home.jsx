@@ -1,6 +1,7 @@
 import React from 'react'
 import NewArrivals from '../components/NewArrivals'
 import Announcement from '../components/Announcement'
+import Newsletter from '../components/Newsletter'
 import styled from 'styled-components'
 import { newObj, jeanObj } from '../components/NewArrivals/data'
 
@@ -17,6 +18,7 @@ const Home = () => {
             <Announcement />
             <NewArrivals {...newObj} />
             <NewArrivals {...jeanObj} />
+            <Newsletter />
         </Container>
     )
 }

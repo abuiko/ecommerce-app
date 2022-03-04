@@ -13,6 +13,6 @@ export const newObj =
     id: "new",
     img1: require("../../assets/new_arrivals.jpg"),
     img2: require("../../assets/new_arrivals2.jpg"),
-    name: "Spring Collection",
+    name: "New Arrivals",
     alt: "new arrivals",
 }
