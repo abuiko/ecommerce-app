@@ -4,130 +4,121 @@ import styled from 'styled-components'
 import { device } from '../responsive'
 
 const Container = styled.div`
+    max-width: 1200px;
+    margin: auto;
+    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const Wrapper = styled.div`
+    width: 100%;
+    padding: 5rem 3rem 2rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0px;
-
-    @media screen and ${device.tablet} {
-        flex-direction: column;
-        align-items: start;
-        padding: 20px 0px;
-    }
+    flex-wrap: wrap;
 `
 const Left = styled.div`
-    flex: 1;
+  
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    
 `
-const Logo = styled.h1``
-const Desc = styled.div`
-    margin: 20px 0px;
-    width: 80%;
+const Logo = styled.p`
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 `
+
 const SocialContainer = styled.div`
     display: flex;
+    margin-top: 1rem;
 `
 const SocialIcon = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color: white;
-    background-color: #${props => props.color};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
+    color: #000;
     
+    margin-right: 20px;   
 `
-const Center = styled.div`
-    flex: 1;
-    padding: 20px;
-`
-
-const Title = styled.h3`
-    margin-bottom: 30px;
-`
-const List = styled.ul`
+const List = styled.div`
     margin: 0;
     padding: 0;
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
+   
+    
 `
-const ListItem = styled.li`
-    width: 50%; 
+const ListItem = styled.p`
+    width: 50%;
     margin-bottom: 10px;   
 `
 const Right = styled.div`
-    flex: 1;
-    padding: 20px;
-   
+   margin-top: 2rem;
     
-    
+`
+const Desc = styled.div`
+   margin-bottom: 1rem;
+`
+const InputContainer = styled.div`
+    width: 100%;
+    margin: 0rem;
+`
+const Input = styled.input`
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.4rem 1rem;
+    margin-bottom: 1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #000;
+`
+const Button = styled.button`
+    display: inline-block;
+    width: 100%;
+    padding: 0.6rem;
+    border: none;
+    background-color: #000;
+    color: #fff;
 `
 
-const ContactItem = styled.div`
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-`
-const Payment = styled.img`
-    width: 50%;
-`
 
 const Footer = () => {
     return (
         <Container>
-            <Left>
-                <Logo>LOGO</Logo>
-                <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex
-                ea commodo consequat.
-                </Desc>
-                <SocialContainer>
-                    <SocialIcon color="3B5999">
-                        <Facebook />
-                    </SocialIcon>
-                    <SocialIcon color="E4405F">
-                        <Instagram />
-                    </SocialIcon>
-                    <SocialIcon color="55ACEE">
-                        <Twitter />
-                    </SocialIcon>
-                </SocialContainer>
-            </Left>
-            <Center>
-                <Title>Useful Links</Title>
-                <List>
-                    <ListItem>Home</ListItem>
-                    <ListItem>Cart</ListItem>
-                    <ListItem>Man Fashion</ListItem>
-                    <ListItem>Woman Fashion</ListItem>
-                    <ListItem>Accessories</ListItem>
-                    <ListItem>Order Tracking</ListItem>
-                    <ListItem>Wishlist</ListItem>
-                    <ListItem>Terms</ListItem>
-
-                </List>
-            </Center>
-            <Right>
-                <Title>Contact</Title>
-                <ContactItem>
-                    <Room style={{ marginRight: "10px" }} />
-                    111 Main Rd, New York 11209
-                </ContactItem>
-                <ContactItem>
-                    <Phone style={{ marginRight: "10px" }} />
-                    +1 123 345 5678
-                </ContactItem>
-                <ContactItem>
-                    <MailOutline style={{ marginRight: "10px" }} />
-                    contact@logo.dev
-                </ContactItem>
-                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-            </Right>
+            <Wrapper>
+                <Left>
+                    <Logo>LOGO</Logo>
+                    <List>
+                        <ListItem>Home</ListItem>
+                        <ListItem>Sign In</ListItem>
+                        <ListItem>Wishlist</ListItem>
+                        <ListItem>Cart</ListItem>
+                    </List>
+                    <SocialContainer>
+                        <SocialIcon>
+                            <Facebook />
+                        </SocialIcon>
+                        <SocialIcon>
+                            <Instagram />
+                        </SocialIcon>
+                        <SocialIcon>
+                            <Twitter />
+                        </SocialIcon>
+                    </SocialContainer>
+                </Left>
+                <Right>
+                    <Desc>Get updates from your favorite products!</Desc>
+                    <InputContainer>
+                        <Input placeholder="Your Email" />
+                        <Button>Subscribe</Button>
+                    </InputContainer>
+                </Right>
+            </Wrapper>
         </Container>
     )
 }

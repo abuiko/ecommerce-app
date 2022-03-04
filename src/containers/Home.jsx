@@ -1,18 +1,18 @@
 import React from 'react'
-
-import NewsLetter from '../components/NewsLetter'
 import NewArrivals from '../components/NewArrivals'
+import styled from 'styled-components'
+import { newObj, jeanObj } from '../components/NewArrivals/data'
 
+
+
+const Container = styled.div``
 
 const Home = () => {
     return (
-        <div>
-
-            <NewArrivals />
-            <NewsLetter />
-
-
-        </div>
+        <Container>
+            <NewArrivals {...newObj} />
+            <NewArrivals {...jeanObj} />
+        </Container>
     )
 }
 

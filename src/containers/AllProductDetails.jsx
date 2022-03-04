@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/action'
 import { useParams } from 'react-router-dom'
-import NewsLetter from '../components/NewsLetter'
-
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
 import { device } from '../responsive'
@@ -191,7 +189,7 @@ const AllProductDetails = () => {
 
             {loading ? <Loading /> : <ShowProduct />}
 
-            <NewsLetter />
+
 
         </Container>
     )

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
-import NewsLetter from '../components/NewsLetter'
 import Skeleton from 'react-loading-skeleton'
 import { Oval } from 'react-loader-spinner'
 
@@ -147,8 +146,6 @@ const AllProducts = () => {
                 <Button onClick={() => filterProduct("swimsuit")}>Swimsuits</Button>
             </FilterButtons>
             {loading ? <Loading /> : <ShowProducts />}
-            <NewsLetter />
-
 
         </Container>
     )

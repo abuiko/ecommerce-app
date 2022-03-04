@@ -1,24 +1,21 @@
-import React from 'react'
 import styled from 'styled-components'
-import image1 from '../assets/new_arrivals2.jpg'
-import image2 from '../assets/new_arrivals.jpg'
-import { Link } from 'react-router-dom'
-import { device } from '../responsive'
+import { device } from '../../responsive'
+import { Link as LinkR } from 'react-router-dom'
 
-const Container = styled.div``
-const Wrapper = styled.div`
+export const Container = styled.div``
+export const Wrapper = styled.div`
     height: 70vh;
     display: flex;
     justify-content: flex-between;
     position: relative;
 `
 
-const Left = styled.div`
+export const Left = styled.div`
     background-color: red;
     flex: 1;
     
 `
-const Right = styled.div`
+export const Right = styled.div`
     background-color: blue;
     flex: 1;
 
@@ -27,12 +24,12 @@ const Right = styled.div`
     }
    
 `
-const Image = styled.img`
+export const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
 `
-const Info = styled.div`
+export const Info = styled.div`
     width: 500px;
     position: absolute;
     top: 80%;
@@ -46,7 +43,7 @@ const Info = styled.div`
     }
 
 `
-const Button = styled.button`
+export const Button = styled.button`
     border: none;
     text-decoration: underline;
     padding: 0.5rem 1rem;
@@ -61,7 +58,13 @@ const Button = styled.button`
     }
 
 `
-const Title = styled.p`
+
+export const ShowLink = styled(LinkR)`
+    text-decoration: none;
+    color: black;
+
+`
+export const Title = styled.p`
     text-align: center;
     font-size: 2rem;
     font-weight: 300;
@@ -73,27 +76,3 @@ const Title = styled.p`
         font-size: 1.2rem;
     }
 `
-
-const NewArrivals = () => {
-    return (
-        <Container>
-
-            <Wrapper>
-                <Info>
-                    <Title>Spring Collection</Title>
-                    <Button><Link to="/products" style={{ textDecoration: 'none', color: "black" }}>Show More</Link></Button>
-                </Info>
-
-                <Left>
-                    <Image src={image1} />
-                </Left>
-                <Right>
-                    <Image src={image2} />
-                </Right>
-            </Wrapper>
-
-        </Container>
-    )
-}
-
-export default NewArrivals
