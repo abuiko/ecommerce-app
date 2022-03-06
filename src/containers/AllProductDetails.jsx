@@ -6,29 +6,33 @@ import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
 import { device } from '../responsive'
 
-const Container = styled.div``
-const Wrapper = styled.div`
-    padding: 50px;
-    display: flex;
+const Container = styled.div`
+    padding-top: 50px;
     max-width: 1280px;
     margin: auto;
+
+`
+const Wrapper = styled.div`
+    padding: 70px 0px;
+    display: flex;
+    justify-content: center;
     @media screen and ${device.mobile} {
-        flex-direction: column;
+        
     }
 `
 const ImgContainer = styled.div`
-    flex: 1;
+   
 `
 const Image = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 450px;
+    
 `
 const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
+    width: 550px;
+  
     padding: 0px 50px;
     @media screen and ${device.tablet} {
         padding: 10px 10px;

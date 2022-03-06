@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
-import Skeleton from 'react-loading-skeleton'
 import { Oval } from 'react-loader-spinner'
 
-// import { Link } from 'react-router-dom'
-
 const Container = styled.div`
-    
+    max-width: 1400px;
+    margin: auto;
 `
 
 const LoadingWrapper = styled.div`

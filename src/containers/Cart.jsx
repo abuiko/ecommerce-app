@@ -8,10 +8,15 @@ import { device } from '../responsive'
 import { ShoppingCartOutlined } from '@material-ui/icons'
 import EmptySection from '../components/EmptySection'
 
-const Container = styled.div``
+const Container = styled.div`
+    width: 1400px;
+    margin: auto;
+    padding-top: 90px;
+    min-height: 80vh;
+`
 
 const Wrapper = styled.div`
-    padding: 20px;
+    
     margin-top: 30px;
 
     @media screen and ${device.tablet} {
@@ -21,40 +26,13 @@ const Wrapper = styled.div`
 const Title = styled.h1`
     font-weight: 300;
     text-align: center;
+    margin-bottom: 30px;
 
     @media screen and ${device.mobile} {
         font-size: 25px;
     }
 `
-const Top = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
 
-    @media screen and ${device.tablet} {
-        padding-bottom: 0px;
-    }
-`
-const TopButton = styled.button`
-    padding: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    background-color: ${props => props.type === "filled" ? "black" : "transparent"};
-    color: ${props => props.type === "filled" && "white"};
-    border: ${props => props.type === "filled" && "none"};
-`
-const TopTexts = styled.div`
-    @media screen and ${device.tablet} {
-        display: none;
-    }
-`
-
-const TopText = styled.span`
-    text-decoration: underline;
-    cursor: pointer;
-    margin: 0px 10px;
-`
 
 const Bottom = styled.div`
     display: flex;
@@ -117,15 +95,6 @@ const Cart = () => {
             {items.length > 0 ?
                 <Wrapper>
                     <Title>YOUR CART</Title>
-                    <Top>
-                        <TopButton>CONTINUE SHOPPING</TopButton>
-                        <TopTexts>
-
-                            <TopText>Items In Cart ({items.length})</TopText>
-
-                        </TopTexts>
-                        <TopButton type="filled">CHECKOUT NOW</TopButton>
-                    </Top>
                     <Bottom>
                         <Info>{itemsInCart}</Info>
                         <Summary>
