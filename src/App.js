@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Home from './containers/Home'
 import Register from './containers/Register'
 import Login from './containers/Login'
@@ -8,8 +9,8 @@ import { Routes, Route } from 'react-router-dom'
 import AllProducts from './containers/AllProducts';
 import AllProductDetails from './containers/AllProductDetails';
 import styled from 'styled-components'
-import Announcement from './components/Announcement'
 import Navbar from './components/Navbar'
+import Sidebar from './components/Navbar/Sidebar'
 import Footer from './components/Footer'
 
 
@@ -18,10 +19,15 @@ const Container = styled.div`
 `
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <Container>
-
-      <Navbar />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
 
       <Routes>
         <Route exact path="/" element={<Home />} />

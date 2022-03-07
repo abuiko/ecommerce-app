@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, Wrapper, Info, Title, Button, ImgWrap, Image, ShowLink } from './CategoryElements'
 import Top from '../../assets/top.jpg'
-import Bottom from '../../assets/bottom.jpg'
+import Bottom from '../../assets/bottom-cat.jpg'
+
 
 
 const Category = () => {
@@ -18,7 +19,7 @@ const Category = () => {
                     <Image src={Top} alt="top" />
                 </ImgWrap>
             </Wrapper>
-            <Wrapper>
+            <Wrapper style={{ marginRight: "0.3rem" }}>
                 <Info>
                     <Title>Bottoms</Title>
                     <Button>
@@ -29,6 +30,7 @@ const Category = () => {
                     <Image src={Bottom} alt="bottom" />
                 </ImgWrap>
             </Wrapper>
+
         </Container>
     )
 }

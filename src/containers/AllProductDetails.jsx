@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     padding: 70px 0px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     @media screen and ${device.mobile} {
         
     }
@@ -25,6 +26,10 @@ const ImgContainer = styled.div`
 `
 const Image = styled.img`
     width: 450px;
+
+    @media screen and ${device.mobile} {
+        width: 250px;
+    }
     
 `
 const InfoContainer = styled.div`
@@ -36,6 +41,9 @@ const InfoContainer = styled.div`
     padding: 0px 50px;
     @media screen and ${device.tablet} {
         padding: 10px 10px;
+    }
+    @media screen and ${device.mobile} {
+        width: 350px;
     }
 `
 const Title = styled.h1`

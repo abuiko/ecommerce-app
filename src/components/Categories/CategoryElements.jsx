@@ -6,21 +6,29 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     
+    
 `
 export const Wrapper = styled.div`
     flex: 1;
-    
     position: relative;
-    margin: 0rem 0rem 0.3rem;
-    border-radius: 50%;
+    margin: 0rem 0rem 0.3rem;   
+`
+export const Info = styled.div`
+    width: 70%;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    background-color: rgba(255,255,255,0.8);
+    padding: 1.2rem 0rem;
 
     @media screen and ${device.mobile} {
-        margin: 0rem 0rem 1rem;
+        width: 100%;        
     }
 `
 export const Title = styled.p`
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 300;
     color: #000;
     letter-spacing: 5px;
@@ -34,26 +42,20 @@ export const Title = styled.p`
 
 export const ImgWrap = styled.div`
     height: 500px;
+
+    @media screen and ${device.mobile} {
+        height: 300px;
+        
+    }
+
 `
 export const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
 `
-export const Info = styled.div`
-    width: 500px;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-    background-color: rgba(255,255,255,0.8);
-    padding: 1.7rem 0rem;
 
-    @media screen and ${device.mobile} {
-        width: 100%;
-    }
 
-`
 export const Button = styled.button`
     border: none;
     text-decoration: underline;
