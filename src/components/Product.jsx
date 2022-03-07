@@ -2,47 +2,25 @@ import { Favorite, FavoriteBorderOutlined } from '@material-ui/icons'
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { device } from '../responsive'
-import { Link } from 'react-router-dom'
-
+import { Link as LinkR } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToWishlist, removeFromWishlist } from '../redux/action'
-// import { Context } from '../Context'
+import { CgEnter } from 'react-icons/cg'
 
-const Info = styled.div`
-    opacity: 0;
-    width: 100%;
-    height: 320px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background-color: rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
 
-    @media screen and ${device.mobile} {
-        opacity: 1;
-        background-color: transparent;
-    }
-`
 const Container = styled.div`
-    min-width: 280px;
-    height: 400px;
+     
     position: relative;
-    background: white;
-    -webkit-box-shadow: 2px 5px 10px -9px #000000; 
-    box-shadow: 2px 5px 10px -9px #000000;
-    
-    &:hover ${Info} {
-        opacity: 1;
-    }
+    background: white;   
 `
 const CardTop = styled.div`
     width: 100%;
-    height: 320px;       
+    height: 450px;  
+    position: relative;
+    
+    @media screen and ${device.mobile} {
+        height: 300px;
+    }
 `
 const Image = styled.img`
    width: 100%;
@@ -50,15 +28,29 @@ const Image = styled.img`
    object-fit: cover;
 `
 const Icon = styled.div`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px 15px;
+`
+const FavEmpty = styled(FavoriteBorderOutlined)`
+   cursor: pointer;
+
+`
+const FavFull = styled(Favorite)`
    cursor: pointer;
 `
-const DetailsButton = styled.div`
+const DetailsButton = styled(LinkR)`
+    color: #000;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 15px;
+    font-size: 28px;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    font-size: 20px;
-    background-color: rgba(255,255,255,0.6);
-    border-radius: 7px;
+    background-color: rgba(255,255,255,0.3);
     transition: all 0.4s ease-in-out;
 
     &:hover {
@@ -75,11 +67,32 @@ const CardText = styled.div`
 `
 const Title = styled.p`
     font-size: 20px;
+   
     text-transform: capitalize;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+
+    @media screen and ${device.mobile} {
+        font-size: 17px;
+    }
 `
 
-const Text = styled.p``
+const Price = styled.p`
+    font-weight: bold;
+    margin-bottom: 7px;
+`
+
+const Color = styled.div`
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: ${props => props.color};
+
+    @media screen and ${device.tablet} {
+        width: 20px;
+        height: 20px;
+    }
+`
+
 
 
 const Product = ({ item }) => {
@@ -109,31 +122,23 @@ const Product = ({ item }) => {
         <Container>
             <CardTop>
                 <Image src={item.url} />
-                <Info>
-                    <Link to={`/products/${item.id}`} style={{ color: "black", textDecoration: "none" }}>
-                        <DetailsButton>
-                            Details
-                        </DetailsButton>
-                    </Link>
-
-                </Info>
+                <DetailsButton to={`/products/${item.id}`}>
+                    <CgEnter />
+                </DetailsButton>
+                <Icon>
+                    <FavEmpty style={{ fontSize: "27px" }} onClick={() => console.log(item.isFavorite)} />
+                </Icon>
             </CardTop>
             <CardBottom>
                 <CardText>
                     <Title>{item.name}</Title>
-                    <Text>${item.price}</Text>
+                    <Price>${item.price}</Price>
+                    <Color color={item.color}></Color>
                 </CardText>
-
-                <Icon onClick={() => console.log(item.isFavorite)}>
-                    <FavoriteBorderOutlined style={{ fontSize: "29px" }} />
-                    {/* <Favorite style={{ fontSize: "29px" }} /> */}
-                </Icon>
-
-
             </CardBottom>
 
 
-        </Container>
+        </Container >
     )
 }
 

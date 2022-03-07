@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
 import { Oval } from 'react-loader-spinner'
+import { device } from '../responsive'
 
 const Container = styled.div`
     max-width: 1400px;
     margin: auto;
+    padding-top: 90px;
 `
 
 const LoadingWrapper = styled.div`
@@ -53,16 +55,19 @@ const Button = styled.button`
     }
 `
 const Wrapper = styled.div` 
-    max-width: 2000px;
+    max-width: 1400px;
     margin: auto;
 `
 const ProductContainer = styled.div`
     
-    padding: 20px 20px 50px;
+    padding: 20px 10px 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: auto; 
-    grid-gap: 9px;    
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px; 
+    
+    @media screen and ${device.mobile} {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 `
 
 
@@ -140,8 +145,7 @@ const AllProducts = () => {
                 <Button onClick={() => setFilter(data)}>All</Button>
                 <Button onClick={() => filterProduct("top")}>Tops</Button>
                 <Button onClick={() => filterProduct("bottom")}>Bottoms</Button>
-                <Button onClick={() => filterProduct("dress")}>Dresses</Button>
-                <Button onClick={() => filterProduct("swimsuit")}>Swimsuits</Button>
+                <Button onClick={() => filterProduct("dress")} style={{ marginRight: "0" }}>Dresses</Button>
             </FilterButtons>
             {loading ? <Loading /> : <ShowProducts />}
 

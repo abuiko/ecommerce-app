@@ -19,7 +19,7 @@ const Category = () => {
                     <Image src={Top} alt="top" />
                 </ImgWrap>
             </Wrapper>
-            <Wrapper style={{ marginRight: "0.3rem" }}>
+            <Wrapper>
                 <Info>
                     <Title>Bottoms</Title>
                     <Button>
