@@ -18,17 +18,20 @@ const Wrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     @media screen and ${device.mobile} {
-        
+        padding-bottom: 10px;
+        padding-top: 15px;
     }
 `
 const ImgContainer = styled.div`
-   
+    @media screen and ${device.mobile} {
+        margin-bottom: 40px;
+    }
 `
 const Image = styled.img`
     width: 450px;
 
     @media screen and ${device.mobile} {
-        width: 250px;
+        width: 100%;
     }
     
 `
@@ -44,18 +47,30 @@ const InfoContainer = styled.div`
     }
     @media screen and ${device.mobile} {
         width: 350px;
+        padding: 10px 15px;
     }
 `
 const Title = styled.h1`
     font-weight: 300;
     text-transform: capitalize;
+
+    @media screen and ${device.mobile} {
+        font-size: 27px;
+    }
 `
 const Desc = styled.p`
     margin: 20px 0px;  
+    @media screen and ${device.mobile} {
+        font-size: 14px;
+    }
 `
 const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
+
+    @media screen and ${device.mobile} {
+        font-size: 25px;
+    }
 `
 const FilterContainer = styled.div`
     width: 100%;
@@ -69,6 +84,7 @@ const Filter = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+
 `
 const FilterTitle = styled.span`
     font-size: 20px;
@@ -81,6 +97,11 @@ const FilterColor = styled.div`
     background-color: ${props => props.color};
     margin-left: 10px;
     cursor: pointer;
+
+    @media screen and ${device.mobile} {
+        width: 20px;
+        height: 20px;
+    }
 `
 const FilterSize = styled.select`
     padding: 15px;
@@ -89,6 +110,10 @@ const FilterSize = styled.select`
     cursor: pointer;
     font-weight: 500;
     width: 50%;
+
+    @media screen and ${device.mobile} {
+        width: 100%;
+    }
 `
 const FilterSizeOption = styled.option``
 
@@ -103,6 +128,10 @@ const Button = styled.button`
     font-weight: 500;
     transition: all 0.5s ease;
     width: 50%;
+
+    @media screen and ${device.mobile} {
+        width: 100%;
+    }
 
     &:hover {
         background-color: teal;
@@ -146,9 +175,7 @@ const AllProductDetails = () => {
                 <InfoContainer>
                     <Title>{product.name}</Title>
                     <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit.</Desc>
+                    ut labore et dolore magna aliqua. </Desc>
                     <Price>${product.price}</Price>
                     <FilterContainer>
                         <Filter>
