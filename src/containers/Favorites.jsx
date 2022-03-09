@@ -10,7 +10,10 @@ import EmptySection from '../components/EmptySection'
 import { useSelector } from 'react-redux'
 
 const Container = styled.div`
-    
+    max-width: 1400px;
+    margin: auto;
+    padding-top: 90px;
+    min-height: 80vh;
 `
 
 const Title = styled.h1`

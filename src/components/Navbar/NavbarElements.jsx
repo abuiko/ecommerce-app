@@ -106,6 +106,7 @@ export const MenuLink = styled(LinkR)`
     text-decoratioN; none;
     color: #000;
 `
+export const RegisterLink = styled.p``
 export const Badge = styled.span`
     background-color: red;
     width: 17px;

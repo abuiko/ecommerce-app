@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
 import Product from '../components/Product'
 import styled from 'styled-components'
 import { Oval } from 'react-loader-spinner'
@@ -76,6 +77,7 @@ const AllProducts = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState(data)
     const [loading, setLoading] = useState(false)
+
 
     const ref = useRef(false)
 
