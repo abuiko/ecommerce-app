@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { device } from '../responsive'
 
-const EmptyFavWrapper = styled.div`
+import styled from 'styled-components'
+import { device } from '../../responsive'
+
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@ const EmptyFavWrapper = styled.div`
     background-color: #F8F8F8;
    
 `
-const Icon = styled.div`
+export const Icon = styled.div`
     border: 1px solid #000;
     width: 60px;
     height: 60px;
@@ -22,31 +22,33 @@ const Icon = styled.div`
     margin-bottom: 20px;
     background-color: white;
 `
-const EmptyFavText = styled.p`
+export const Text = styled.p`
     font-size: 22px;
     font-weight: 300;
     margin-bottom: 20px;
 `
-const ButtonContainer = styled.div`
+export const BtnContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
 `
-const ButtonMenu = styled.button`
-    width: 200px;
+export const BtnMenu = styled.button`
+    width: 180px;
     padding: 10px 20px;
+    background-color: #000;
     border: 1px solid #000;
-    background: white;
-    color: #000;
+    color: white;
+    
     font-weight: 500;
     font-size: 16px;
     margin-right: ${props => props.type === "leftBtn" && "10px"};
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     &:hover {
-        background-color: #000;
-        color: white;
+        
+        background: white;
+        color: #000;
     }
 
     @media screen and ${device.mobile} {
@@ -56,21 +58,3 @@ const ButtonMenu = styled.button`
     }
 `
 
-const EmptySection = (props) => {
-    return (
-        <EmptyFavWrapper>
-            <Icon>
-                {/* <FavoriteBorderOutlined style={{ fontSize: "35px" }} /> */}
-                {props.icon}
-            </Icon>
-            <EmptyFavText>Your {props.title} is Empty</EmptyFavText>
-            <ButtonContainer>
-                <ButtonMenu type="leftBtn">Browse Women's</ButtonMenu>
-                <ButtonMenu>Browse Men's</ButtonMenu>
-            </ButtonContainer>
-
-        </EmptyFavWrapper>
-    )
-}
-
-export default EmptySection

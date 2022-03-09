@@ -60,8 +60,7 @@ const Price = styled.span`
 const FilterContainer = styled.div`
     width: 100%;
     margin: 30px 0px;
-    display: flex;
-    justify-content: space-between;
+    
     @media screen and ${device.mobile} {
         width: 100%;
     }
@@ -69,6 +68,7 @@ const FilterContainer = styled.div`
 const Filter = styled.div`
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 `
 const FilterTitle = styled.span`
     font-size: 20px;
@@ -79,47 +79,30 @@ const FilterColor = styled.div`
     height: 30px;
     border-radius: 50%;
     background-color: ${props => props.color};
-    margin: 0px 15px;
+    margin-left: 10px;
     cursor: pointer;
 `
 const FilterSize = styled.select`
-    margin-left: 10px;
-    padding: 10px;
+    padding: 15px;
+    border: 1px solid lightgray;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    width: 50%;
 `
 const FilterSizeOption = styled.option``
 
-const AddContainer = styled.div`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
 
-    @media screen and ${device.mobile} {
-        width: 100%;
-    }
-`
-const AmountContainer = styled.div`
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-`
-const Amount = styled.span`
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    border: 1px solid teal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0px 5px;
-`
+
 const Button = styled.button`
+    display: block;
     padding: 15px;
     border: 1px solid teal;
     background-color: white;
     cursor: pointer;
     font-weight: 500;
     transition: all 0.5s ease;
+    width: 50%;
 
     &:hover {
         background-color: teal;
@@ -130,7 +113,6 @@ const AllProductDetails = () => {
     const { id } = useParams()
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
-
 
 
     const dispatch = useDispatch()
@@ -172,27 +154,22 @@ const AllProductDetails = () => {
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
                             <FilterColor color={product.color} />
-
                         </Filter>
                         <Filter>
-                            <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
+                                <FilterSizeOption>Select Size</FilterSizeOption>
                                 <FilterSizeOption>S</FilterSizeOption>
                                 <FilterSizeOption>M</FilterSizeOption>
                                 <FilterSizeOption>L</FilterSizeOption>
                                 <FilterSizeOption>XL</FilterSizeOption>
                             </FilterSize>
                         </Filter>
+                        <Filter>
+                            <Button onClick={() => addProduct(product)}>ADD TO CART</Button>
+                        </Filter>
+
                     </FilterContainer>
-                    <AddContainer>
-                        <AmountContainer>
-                            <Remove />
-                            <Amount>1</Amount>
-                            <Add />
-                        </AmountContainer>
-                        <Button onClick={() => addProduct(product)}>ADD TO CART</Button>
-                    </AddContainer>
+
                 </InfoContainer>
             </Wrapper>
         )
