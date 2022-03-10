@@ -4,7 +4,7 @@ import { ShoppingCartOutlined, Menu, FavoriteBorderOutlined, AccountCircleOutlin
 import { Container, MobileWrapper, Logo, MenuIcon, NavItem, MenuLink, RegisterLink, Wrapper, Left, Center, Right, MenuItem, Badge } from './NavbarElements'
 
 
-const Navbar = ({ toggle, toggleRegister }) => {
+const Navbar = ({ toggle }) => {
 
     const state = useSelector((state) => state.handleCart)
 

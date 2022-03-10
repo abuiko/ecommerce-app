@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useParams } from 'react-router-dom'
 import Product from '../components/Product'
 import styled from 'styled-components'
 import { Oval } from 'react-loader-spinner'
@@ -94,7 +93,6 @@ const AllProducts = () => {
                 setData(await response.clone().json())
                 setFilter(await response.json())
                 setLoading(false)
-
             }
 
             return () => {
@@ -102,6 +100,7 @@ const AllProducts = () => {
             }
         }
         getProducts()
+
     }, [])
 
     const Loading = () => {
