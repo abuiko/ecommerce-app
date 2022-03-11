@@ -128,7 +128,7 @@ export const MenuItem = styled.div`
 `
 
 export const MenuLink = styled(LinkR)`
-    text-decoratioN; none;
+    text-decoration: none;
     color: #000;
 `
 export const RegisterLink = styled.p``

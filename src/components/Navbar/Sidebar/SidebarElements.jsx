@@ -7,7 +7,7 @@ export const SidebarContainer = styled.aside`
     
     position: fixed;
     z-index: 999;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background: #fff;
     display: flex;
@@ -28,9 +28,9 @@ export const CloseIcon = styled(FaTimes)`
 export const Icon = styled.div`
     position: absolute;
     top: 2rem;
-    right: 1.5rem;
+    right: 1rem;
     background: transparent;
-    font-size: 2rem;
+    font-size: 1.4rem;
     cursor: pointer;
     outline: none;
 `
@@ -57,10 +57,27 @@ export const SidebarLink = styled(Link)`
     transition: 0.2s ease-in-out;
     color: #000;
     cursor: pointer;
+    
 
     &:hover {
         color: teal;
         transition: 0.2s ease-in-out;
     }
 
+`
+
+export const Badge = styled.span`
+    background-color: red;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -3%;
+    right: -10%;
+    color: white;
+    font-weight: 700;
 `

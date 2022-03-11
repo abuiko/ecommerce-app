@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter } from '@material-ui/icons'
 import styled from 'styled-components'
+import { device } from '../responsive'
 
 
 const Container = styled.div`
@@ -15,9 +16,13 @@ const Wrapper = styled.div`
 `
 
 const Logo = styled.p`
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+
+    @media screen and ${device.laptop} {
+        font-size: 1.4rem;
+    }
 `
 
 const SocialContainer = styled.div`
@@ -31,6 +36,12 @@ const SocialIcon = styled.div`
     height: 40px;
     border-radius: 50%;
     color: #000; 
+
+
+    @media screen and ${device.laptop} {
+        width: 30px;
+        height: 30px;
+    }
 `
 
 

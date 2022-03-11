@@ -1,11 +1,12 @@
 import React from 'react'
-import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink } from './SidebarElements'
-
+import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink, Badge } from './SidebarElements'
+import { useSelector } from 'react-redux'
 import { FaTshirt, FaShoppingCart } from 'react-icons/fa'
 import { GiTrousers, GiDress } from 'react-icons/gi'
 import { MdFavorite } from 'react-icons/md'
 
 const Sidebar = ({ isOpen, toggle }) => {
+    const state = useSelector((state) => state.handleCart)
     return (
 
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -35,10 +36,14 @@ const Sidebar = ({ isOpen, toggle }) => {
                         offset={-80}
                     ><MdFavorite /></SidebarLink>
                     <SidebarLink
+                        style={{ position: "relative" }}
                         to="/cart"
                         onClick={toggle}
                         offset={-80}
-                    ><FaShoppingCart /></SidebarLink>
+                    >
+                        <FaShoppingCart />
+                        <Badge>{state.length}</Badge>
+                    </SidebarLink>
 
                 </SidebarMenu>
             </SidebarWrapper>

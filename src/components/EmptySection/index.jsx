@@ -11,8 +11,7 @@ const EmptySection = (props) => {
             </Icon>
             <Text>Your {props.title} is Empty</Text>
             <BtnContainer>
-                <BtnMenu>Shop Now</BtnMenu>
-
+                <BtnMenu to="/products">Shop Now</BtnMenu>
             </BtnContainer>
 
         </Wrapper>

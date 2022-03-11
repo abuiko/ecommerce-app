@@ -26,11 +26,14 @@ const Title = styled.h1`
 
 const Wrapper = styled.div`
     min-height: 80vh;
-    padding: 20px 20px 40px 20px;
+    padding: 20px 10px 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: auto; 
-    grid-gap: 9px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px; 
+    
+    @media screen and ${device.mobile} {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 `
 
 

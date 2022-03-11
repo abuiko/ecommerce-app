@@ -4,7 +4,7 @@ import { device } from '../responsive'
 
 const Container = styled.div`
     height: 500px;
-    background: #ddd;
+    background: #F5F5F5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,12 +18,12 @@ const Wrapper = styled.div`
     width: 40%;
     padding: 2rem 3rem; 
 
-    @media screen and ${device.tablet} {
-        width: 50%;
+    @media screen and ${device.laptop} {
+        width: 60%;
         
     }
 
-    @media screen and ${device.mobile} {
+    @media screen and ${device.tablet} {
         width: 70%;
         padding: 1.5rem 2rem;
         text-align: center;

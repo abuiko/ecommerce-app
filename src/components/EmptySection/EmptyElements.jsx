@@ -1,6 +1,7 @@
 
 import styled from 'styled-components'
 import { device } from '../responsive'
+import { Link } from 'react-router-dom'
 
 export const Wrapper = styled.div`
     display: flex;
@@ -32,13 +33,14 @@ export const BtnContainer = styled.div`
    justify-content: center;
     
 `
-export const BtnMenu = styled.button`
-    width: 180px;
-    padding: 10px 20px;
+export const BtnMenu = styled(Link)`
+    width: 150px;
+    padding: 10px;
     background-color: #000;
     border: 1px solid #000;
     color: white;
-    
+    text-decoration: none;
+    text-align: center;
     font-weight: 500;
     font-size: 16px;
     margin-right: ${props => props.type === "leftBtn" && "10px"};

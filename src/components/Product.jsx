@@ -37,6 +37,7 @@ const FavEmpty = styled(FavoriteBorderOutlined)`
    cursor: pointer;
 
 `
+
 const FavFull = styled(Favorite)`
    cursor: pointer;
 `
@@ -100,11 +101,15 @@ const Product = ({ item }) => {
     const dispatch = useDispatch()
     const addProduct = (product) => {
         dispatch(addToWishlist(product))
+        console.log(`added ${product.id}`)
     }
 
     const removeProduct = (product) => {
         dispatch(removeFromWishlist(product))
     }
+
+
+
 
 
     // const { toggleFavorite } = useContext(Context)
@@ -126,7 +131,7 @@ const Product = ({ item }) => {
                     <CgEnter />
                 </DetailsButton>
                 <Icon>
-                    <FavEmpty style={{ fontSize: "27px" }} onClick={() => console.log(item.isFavorite)} />
+                    <FavEmpty style={{ fontSize: "30px" }} onClick={() => addProduct(item)} />
                 </Icon>
             </CardTop>
             <CardBottom>
