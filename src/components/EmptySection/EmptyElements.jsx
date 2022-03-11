@@ -29,8 +29,7 @@ export const Text = styled.p`
 `
 export const BtnContainer = styled.div`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+   justify-content: center;
     
 `
 export const BtnMenu = styled.button`

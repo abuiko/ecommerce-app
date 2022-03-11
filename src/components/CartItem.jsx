@@ -24,7 +24,7 @@ const Image = styled.img`
     padding: 20px;
 
     @media screen and ${device.tablet} {
-        width: 100px;
+        width: 120px;
         padding: 10px 20px;
     }
     
@@ -34,6 +34,10 @@ const Details = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    @media screen and ${device.tablet} {
+        margin: 5px 0px;
+    }
 `
 const ProductName = styled.span``
 const ProductId = styled.span``
