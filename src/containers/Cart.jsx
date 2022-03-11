@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 // import { Context } from '../Context'
 
-import { device } from '../responsive'
+import { device } from './responsive'
 import { ShoppingCartOutlined } from '@material-ui/icons'
 import EmptySection from '../components/EmptySection'
 

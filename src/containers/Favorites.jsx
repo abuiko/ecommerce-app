@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import { Context } from '../Context'
 import { Link } from 'react-router-dom'
 import { FavoriteBorderOutlined } from '@material-ui/icons'
-import { device } from '../responsive'
+import { device } from './responsive'
 import EmptySection from '../components/EmptySection'
 
 import { useSelector } from 'react-redux'

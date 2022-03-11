@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Product from '../components/Product'
 import styled from 'styled-components'
 import { Oval } from 'react-loader-spinner'
-import { device } from '../responsive'
+import { device } from './responsive'
 
 const Container = styled.div`
     max-width: 1400px;

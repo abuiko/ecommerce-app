@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Wrapper, Info, Title, Button, Left, Image, Right, ShowLink } from './NewArrivalElements'
 
 
-const NewArrivals = ({ img1, img2, name, alt }) => {
+const NewArrivals = ({ img1, img2, name, alt, bg }) => {
     return (
         <Container>
 
@@ -13,10 +13,10 @@ const NewArrivals = ({ img1, img2, name, alt }) => {
                         <ShowLink to="/products">Show More</ShowLink>
                     </Button>
                 </Info>
-                <Left>
+                <Left bg={bg}>
                     <Image src={img1} alt={alt} />
                 </Left>
-                <Right>
+                <Right bg={bg}>
                     <Image src={img2} alt={alt} />
                 </Right>
             </Wrapper>

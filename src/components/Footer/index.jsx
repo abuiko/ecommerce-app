@@ -1,7 +1,6 @@
 import { Facebook, Instagram, Twitter } from '@material-ui/icons'
-import React from 'react'
 import styled from 'styled-components'
-import { device } from '../responsive'
+
 
 const Container = styled.div`
     margin: auto;

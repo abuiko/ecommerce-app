@@ -3,7 +3,7 @@ import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, Sidebar
 
 import { FaTshirt, FaShoppingCart } from 'react-icons/fa'
 import { GiTrousers, GiDress } from 'react-icons/gi'
-import { MdFavorite, MdAccountCircle } from 'react-icons/md'
+import { MdFavorite } from 'react-icons/md'
 
 const Sidebar = ({ isOpen, toggle }) => {
     return (
@@ -15,29 +15,31 @@ const Sidebar = ({ isOpen, toggle }) => {
             <SidebarWrapper>
                 <SidebarMenu>
                     <SidebarLink
+                        to="/products"
                         onClick={toggle}
                         offset={-80}
                     ><FaTshirt /></SidebarLink>
                     <SidebarLink
+                        to="/products"
                         onClick={toggle}
                         offset={-80}
                     ><GiTrousers /></SidebarLink>
                     <SidebarLink
+                        to="/products"
                         onClick={toggle}
                         offset={-80}
                     ><GiDress /></SidebarLink>
                     <SidebarLink
+                        to="/favorites"
                         onClick={toggle}
                         offset={-80}
                     ><MdFavorite /></SidebarLink>
                     <SidebarLink
+                        to="/cart"
                         onClick={toggle}
                         offset={-80}
                     ><FaShoppingCart /></SidebarLink>
-                    <SidebarLink
-                        onClick={toggle}
-                        offset={-80}
-                    ><MdAccountCircle /></SidebarLink>
+
                 </SidebarMenu>
             </SidebarWrapper>
         </SidebarContainer>

@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import Home from './containers/Home'
-
 import Cart from './containers/Cart'
 import Favorites from './containers/Favorites'
-
 import { Routes, Route } from 'react-router-dom'
 import AllProducts from './containers/AllProducts';
 import AllProductDetails from './containers/AllProductDetails';
@@ -11,8 +9,6 @@ import styled from 'styled-components'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Navbar/Sidebar'
 import Footer from './components/Footer'
-
-
 
 const Container = styled.div`
 

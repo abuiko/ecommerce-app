@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../responsive'
+import { device } from './responsive'
 
 const Container = styled.div`
     height: 100px;

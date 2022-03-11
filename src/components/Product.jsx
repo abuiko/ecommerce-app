@@ -1,7 +1,7 @@
 import { Favorite, FavoriteBorderOutlined } from '@material-ui/icons'
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
-import { device } from '../responsive'
+import { device } from './responsive'
 import { Link as LinkR } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addToWishlist, removeFromWishlist } from '../redux/action'

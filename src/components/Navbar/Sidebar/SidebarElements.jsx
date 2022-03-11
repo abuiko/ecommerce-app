@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { FaTimes } from 'react-icons/fa'
-import { device } from '../responsive'
+import { device } from '../../responsive'
+import { Link } from "react-router-dom"
 
 export const SidebarContainer = styled.aside`
     
@@ -38,7 +39,7 @@ export const SidebarWrapper = styled.div`
    height: 60%;
 `
 
-export const SidebarMenu = styled.ul`
+export const SidebarMenu = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,7 +49,7 @@ export const SidebarMenu = styled.ul`
     
 `
 
-export const SidebarLink = styled.li`
+export const SidebarLink = styled(Link)`
    
     font-size: 2.1rem;
     text-decoration: none;

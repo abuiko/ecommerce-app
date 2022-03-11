@@ -1,6 +1,6 @@
 
 import styled from 'styled-components'
-import { device } from '../../responsive'
+import { device } from '../responsive'
 import { FavoriteBorderOutlined } from '@material-ui/icons'
 
 export const Container = styled.div`

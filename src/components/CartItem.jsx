@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Add, Remove } from '@material-ui/icons'
-
 import { useDispatch } from 'react-redux'
 import { removeFromCart } from '../redux/action'
-
-import { device } from '../responsive'
+import { device } from './responsive'
 
 const Container = styled.div``
 

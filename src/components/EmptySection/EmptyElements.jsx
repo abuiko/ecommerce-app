@@ -1,6 +1,6 @@
 
 import styled from 'styled-components'
-import { device } from '../../responsive'
+import { device } from '../responsive'
 
 export const Wrapper = styled.div`
     display: flex;

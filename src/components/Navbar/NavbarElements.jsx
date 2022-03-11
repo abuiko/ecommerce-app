@@ -1,17 +1,18 @@
 
 import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
-import { device } from '../../responsive'
+import { device } from '../responsive'
 
 
 export const Container = styled.div`
-   position: fixed;
-   top: 0;
-   width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
     padding: 15px 0px;  
-    height: 60px;
+    height: 80px;
     z-index: 99;
-    background: white;  
+    background-color: #fff; 
+    
 `
 export const MobileWrapper = styled.div`
     display: none;

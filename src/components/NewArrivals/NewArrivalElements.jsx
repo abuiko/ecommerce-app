@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../../responsive'
+import { device } from '../responsive'
 import { Link as LinkR } from 'react-router-dom'
 
 export const Container = styled.div`
@@ -12,14 +12,12 @@ export const Wrapper = styled.div`
     position: relative;
     margin: 0rem 0rem 0.3rem;
 
-    @media screen and ${device.mobile} {
-        margin: 0rem 0rem 1rem;
-    }
 `
 
 export const Left = styled.div`
     background-color: red;
     flex: 1;
+    display: ${({ bg }) => (bg ? "none" : "block")};
     
 `
 export const Right = styled.div`
@@ -27,7 +25,7 @@ export const Right = styled.div`
     flex: 1;
 
     @media screen and ${device.mobile} {
-        display: none;
+        display: ${({ bg }) => (!bg && "none")};
     }
    
 `
