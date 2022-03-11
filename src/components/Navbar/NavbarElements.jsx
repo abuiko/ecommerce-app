@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import { Link as LinkR } from 'react-router-dom'
 import { device } from '../responsive'
+import { BsSearch } from 'react-icons/bs'
 
 
 export const Container = styled.div`
@@ -67,9 +68,6 @@ export const NavItem = styled(LinkR)`
     }
 `
 
-export const Input = styled.input`
-    border: none;
-`
 
 export const Center = styled.div`
     flex: 1;
@@ -91,6 +89,32 @@ export const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;  
+`
+export const InputWrap = styled.div`
+    border: 1px solid #000;
+    padding: 5px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+    margin-right: 10px;
+
+    @media screen and ${device.laptop} {
+        display: none;
+    }
+    
+`
+export const InputItem = styled.input`
+    border: none;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    font-size: 16px;
+`
+export const Search = styled(BsSearch)`
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translate(-3%, -50%);
 `
 export const MenuItem = styled.div`
     cursor: pointer;

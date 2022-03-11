@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { ShoppingCartOutlined, Menu, FavoriteBorderOutlined, AccountCircleOutlined } from '@material-ui/icons';
 import { Container, MobileWrapper, Logo, MenuIcon, NavItem, MenuLink, RegisterLink, Wrapper, Left, Center, Right, MenuItem, Badge } from './NavbarElements'
-
+import { InputItem, InputWrap, Search } from './NavbarElements'
 
 const Navbar = ({ toggle }) => {
 
@@ -26,7 +26,10 @@ const Navbar = ({ toggle }) => {
                     <Logo to="/">LOGO</Logo>
                 </Center>
                 <Right>
-
+                    <InputWrap>
+                        <InputItem />
+                        <Search />
+                    </InputWrap>
                     <MenuItem>
                         <MenuLink to="/favorites">
                             <FavoriteBorderOutlined style={{ width: "25px", height: "25px" }} />
