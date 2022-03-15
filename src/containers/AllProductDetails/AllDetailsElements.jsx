@@ -20,13 +20,13 @@ export const Wrapper = styled.div`
     }
 `
 export const ImgContainer = styled.div`
-    @media screen and ${device.mobile} {
+    @media screen and ${device.tablet} {
         margin-bottom: 40px;
     }
 `
 export const Image = styled.img`
     width: 450px;
-
+    
     @media screen and ${device.mobile} {
         width: 100%;
     }
@@ -40,7 +40,7 @@ export const InfoContainer = styled.div`
   
     padding: 0px 50px;
     @media screen and ${device.tablet} {
-        padding: 10px 10px;
+        padding: 10px 20px;
     }
     @media screen and ${device.mobile} {
         width: 350px;

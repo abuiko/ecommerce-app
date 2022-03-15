@@ -10,6 +10,19 @@ const Cart = () => {
 
     const items = useSelector(state => state.handleCart)
     const itemsInCart = items.map(item => <CartItem item={item} key={item.id} />)
+    // subtotal
+    const sum = items.map(item => item.price).reduce((prev, curr) => prev + curr, 0)
+    const subtotal = +(sum).toFixed(2)
+
+
+    // estimated shipping
+    const num = 5.65
+    const shipping = subtotal < 50 ? num : 0
+
+
+    // total price
+    const result = subtotal + shipping
+    const total = result.toFixed(2)
     return (
         <Container>
             {items.length > 0 ?
@@ -21,19 +34,15 @@ const Cart = () => {
                             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                             <SummaryItem>
                                 <SummaryItemText>Subtotal</SummaryItemText>
-                                <SummaryItemPrice>$60</SummaryItemPrice>
+                                <SummaryItemPrice>${subtotal}</SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem>
                                 <SummaryItemText>Estimated Shipping</SummaryItemText>
-                                <SummaryItemPrice>$5.65</SummaryItemPrice>
-                            </SummaryItem>
-                            <SummaryItem>
-                                <SummaryItemText>Shipping Discount</SummaryItemText>
-                                <SummaryItemPrice>$-5.65</SummaryItemPrice>
+                                <SummaryItemPrice>${shipping}</SummaryItemPrice>
                             </SummaryItem>
                             <SummaryItem type="total">
                                 <SummaryItemText>Total</SummaryItemText>
-                                <SummaryItemPrice>$60</SummaryItemPrice>
+                                <SummaryItemPrice>${total}</SummaryItemPrice>
                             </SummaryItem>
                             <Button>CHECKOUT NOW</Button>
                         </Summary>

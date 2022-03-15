@@ -16,14 +16,18 @@ const Container = styled.div`
     min-height: 80vh;
 `
 
-const Title = styled.h1`
-    font-size: 30px;
-    font-weight: 500;
-    margin: 40px 0px 20px;
+export const Title = styled.h1`
+    font-weight: 300;
     text-align: center;
-    letter-spacing: 1px;    
-`
+    margin-bottom: 30px;
 
+    @media screen and ${device.mobile} {
+        font-size: 25px;
+    }
+`
+const Favwrap = styled.div`
+    margin-top: 30px;
+`
 const Wrapper = styled.div`
     min-height: 80vh;
     padding: 20px 10px 50px;
@@ -46,7 +50,11 @@ const Favorites = () => {
     return (
         <Container>
             {items.length > 0 ?
-                <Wrapper>{itemsInWishlist}</Wrapper> :
+                <Favwrap>
+                    <Title>YOUR FAVORITES</Title>
+                    <Wrapper>{itemsInWishlist}</Wrapper>
+                </Favwrap>
+                :
                 <EmptySection icon={<FavoriteBorderOutlined style={{ fontSize: "35px" }} />} title="Wishlist" />
             }
 
